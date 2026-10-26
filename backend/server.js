@@ -718,7 +718,7 @@ const server = http.createServer(async (req, res) => {
   serveStatic(req, res, pathname);
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`====================================================`);
   console.log(`👑 AMBE JEWELLERY SHOP - SERVER ACTIVE`);
   console.log(`👑 Owner: Kanhaiya Sharma | Contact: 6202805193`);

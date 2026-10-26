@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ambe-jewellery-shop
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node backend/server.js
