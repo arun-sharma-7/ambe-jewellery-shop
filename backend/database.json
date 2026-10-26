@@ -1,0 +1,372 @@
+{
+  "shop": {
+    "name": "Ambe Jewellery Shop",
+    "owner": "Kanhaiya Sharma",
+    "phone": "6202805193",
+    "email": "ambejewellers.patna@gmail.com",
+    "address": "Ambe Jewellery Showroom, Main Market, Bihar - 800001",
+    "upiId": "6202805193@paytm",
+    "whatsapp": "916202805193",
+    "tagline": "Pure 24K/22K Gold & 999 Pure Silver • Since 1998",
+    "goldRates": {
+      "gold24k": 142600,
+      "gold22k": 130700,
+      "gold18k": 106950,
+      "silver1kg": 98500,
+      "silver10g": 985,
+      "silver925_10g": 915,
+      "location": "Bihar (Patna & State Market)",
+      "marketStatus": "LIVE MARKET OPEN (BIHAR)",
+      "updatedAt": "Today Bihar Live Rate"
+    }
+  },
+  "products": [
+    {
+      "id": "prod_gold_1",
+      "title": "Royal Kundan & Polki 22K Bridal Haar Set",
+      "category": "Necklaces",
+      "metal": "Gold",
+      "purity": "22K Hallmarked Gold (916)",
+      "carat": "22K",
+      "weightGrams": 64.5,
+      "price": 845000,
+      "mrp": 910000,
+      "discount": "7% OFF",
+      "makingCharge": "₹15,000",
+      "deliveryDays": 2,
+      "rating": 4.9,
+      "reviews": 128,
+      "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1611591475847-a859c2b4e727?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Bridal Bestseller",
+      "description": "Exquisite 22K Gold Royal Rajputana Kundan Polki Choker with matching earrings and maang tikka. Handcrafted Meenakari work with certified pearls.",
+      "inStock": true,
+      "sizes": ["Adjustable Dori", "Standard"]
+    },
+    {
+      "id": "prod_gold_2",
+      "title": "Lakshmi-Ganesh 24K Pure Gold Coin / Bar (999 Purity)",
+      "category": "Coins",
+      "metal": "Gold",
+      "purity": "24K Pure Gold (999)",
+      "carat": "24K",
+      "weightGrams": 10.0,
+      "price": 142600,
+      "mrp": 145000,
+      "discount": "Live Bihar Rate",
+      "makingCharge": "₹1,500",
+      "deliveryDays": 1,
+      "rating": 5.0,
+      "reviews": 215,
+      "image": "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "24K Bihar Rate (142600)",
+      "description": "100% Tamperproof Swiss CertiCard Pack 24 Karat (999 Purity) Pure Gold Bar with embossed Goddess Lakshmi and Lord Ganesh auspicious motifs.",
+      "inStock": true,
+      "sizes": ["10 Grams Bar", "20 Grams Bar", "50 Grams Bar"]
+    },
+    {
+      "id": "prod_gold_3",
+      "title": "Traditional Lakshmi Temple Antique 22K Gold Haar",
+      "category": "Necklaces",
+      "metal": "Gold",
+      "purity": "22K Pure Gold (916)",
+      "carat": "22K",
+      "weightGrams": 42.2,
+      "price": 552000,
+      "mrp": 590000,
+      "discount": "6% OFF",
+      "makingCharge": "₹11,000",
+      "deliveryDays": 2,
+      "rating": 4.8,
+      "reviews": 76,
+      "image": "https://images.unsplash.com/photo-1611591475847-a859c2b4e727?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1611591475847-a859c2b4e727?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Antique Nakshi",
+      "description": "Authentic South Indian Nakshi temple jewellery featuring Goddess Lakshmi idol embossed in 22K antique gold with ruby highlights.",
+      "inStock": true,
+      "sizes": ["18 Inches", "20 Inches"]
+    },
+    {
+      "id": "prod_gold_4",
+      "title": "Royal Nizam Heritage Filigree 22K Gold Choker",
+      "category": "Necklaces",
+      "metal": "Gold",
+      "purity": "22K Hallmarked Gold",
+      "carat": "22K",
+      "weightGrams": 55.8,
+      "price": 730000,
+      "mrp": 780000,
+      "discount": "7% OFF",
+      "makingCharge": "₹12,500",
+      "deliveryDays": 2,
+      "rating": 5.0,
+      "reviews": 84,
+      "image": "https://images.unsplash.com/photo-1543290954-bc6c73335742?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1543290954-bc6c73335742?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Royal Choker",
+      "description": "Intricate Hyderabad Nizam style 22K pure gold choker necklace with hand-chiseled filigree work and dangling gold beads.",
+      "inStock": true,
+      "sizes": ["16 Inches Adjustable"]
+    },
+    {
+      "id": "prod_gold_5",
+      "title": "Imperial Heritage Gold Peacock Kada Pair (22K)",
+      "category": "Bangles",
+      "metal": "Gold",
+      "purity": "22K Hallmarked Gold",
+      "carat": "22K",
+      "weightGrams": 52.0,
+      "price": 680000,
+      "mrp": 725000,
+      "discount": "6% OFF",
+      "makingCharge": "₹13,000",
+      "deliveryDays": 2,
+      "rating": 4.9,
+      "reviews": 52,
+      "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1611591475847-a859c2b4e727?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Handcrafted Kada",
+      "description": "Pair of majestic royal peacock openable screw kadas with delicate filigree and fine enamel detailing in solid 22K yellow gold.",
+      "inStock": true,
+      "sizes": ["2.4", "2.6", "2.8"]
+    },
+    {
+      "id": "prod_gold_6",
+      "title": "Solitaire Cushion Cut 18K Diamond Ring",
+      "category": "Rings",
+      "metal": "Gold",
+      "purity": "18K White Gold",
+      "carat": "18K",
+      "weightGrams": 4.8,
+      "price": 165000,
+      "mrp": 185000,
+      "discount": "11% OFF",
+      "makingCharge": "₹4,500",
+      "deliveryDays": 1,
+      "rating": 5.0,
+      "reviews": 94,
+      "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "IGI Certified",
+      "description": "1.25 Carat VVS1 Clarity, E-Color cushion cut solitaire diamond mounted in hallmarked 18K white gold with halo pave diamonds.",
+      "inStock": true,
+      "sizes": ["12 (Indian)", "14 (Indian)", "16 (Indian)"]
+    },
+    {
+      "id": "prod_silver_1",
+      "title": "Pure Silver (Chandi) Royal Dulhan Payal Pair (925 Hallmark)",
+      "category": "Silver",
+      "metal": "Silver",
+      "purity": "925 Sterling Silver",
+      "carat": "925 Silver",
+      "weightGrams": 140.0,
+      "price": 18500,
+      "mrp": 22000,
+      "discount": "16% OFF",
+      "makingCharge": "₹1,800",
+      "deliveryDays": 1,
+      "rating": 4.9,
+      "reviews": 164,
+      "image": "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Bridal Silver Payal",
+      "description": "Heavy handcrafted Royal Dulhan silver payal pair with musical ghungroos and traditional antique Meenakari bells. 100% 925 Hallmarked silver.",
+      "inStock": true,
+      "sizes": ["10.5 Inches", "11 Inches"]
+    },
+    {
+      "id": "prod_silver_2",
+      "title": "Auspicious Silver Pooja Thali Set (100% Pure Chandi)",
+      "category": "Silver",
+      "metal": "Silver",
+      "purity": "999 Pure Silver",
+      "carat": "999 Silver",
+      "weightGrams": 280.0,
+      "price": 34800,
+      "mrp": 39500,
+      "discount": "12% OFF",
+      "makingCharge": "₹2,500",
+      "deliveryDays": 2,
+      "rating": 5.0,
+      "reviews": 89,
+      "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Pure Silver Pooja Set",
+      "description": "Complete 999 silver engraved puja thali with silver Diya, Agarbatti stand, Kalash, Ghanti, and Lakshmi-Ganesh coins for Diwali and auspicious home ceremonies.",
+      "inStock": true,
+      "sizes": ["8 Inches Thali (280g)", "10 Inches Thali (450g)"]
+    },
+    {
+      "id": "prod_silver_3",
+      "title": "Men's Royal Solid 925 Sterling Silver Bahubali Kada",
+      "category": "Silver",
+      "metal": "Silver",
+      "purity": "925 Sterling Silver",
+      "carat": "925 Silver",
+      "weightGrams": 65.0,
+      "price": 8900,
+      "mrp": 10500,
+      "discount": "15% OFF",
+      "makingCharge": "₹950",
+      "deliveryDays": 1,
+      "rating": 4.9,
+      "reviews": 112,
+      "image": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "Men's Silver Kada",
+      "description": "Heavy solid 925 silver openable round kada with Lord Shiva Trishul & Damroo carving, highly polished for everyday royal attire.",
+      "inStock": true,
+      "sizes": ["2.6", "2.8", "3.0"]
+    },
+    {
+      "id": "prod_silver_4",
+      "title": "Lakshmi-Ganesh 999 Pure Silver Coin (50 Grams)",
+      "category": "Silver",
+      "metal": "Silver",
+      "purity": "999 Pure Silver",
+      "carat": "999 Silver",
+      "weightGrams": 50.0,
+      "price": 5400,
+      "mrp": 6000,
+      "discount": "10% OFF",
+      "makingCharge": "₹450",
+      "deliveryDays": 1,
+      "rating": 5.0,
+      "reviews": 340,
+      "image": "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "999 Chandi Coin",
+      "description": "50g Pure Silver 999 coin certified by Ambe Jewellery Shop, Bihar. Ideal for gifting, weddings, and Dhanteras pooja.",
+      "inStock": true,
+      "sizes": ["50 Grams", "100 Grams", "250 Grams"]
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_demo_1",
+      "name": "Kanhaiya Sharma (VIP Customer)",
+      "email": "kanhaiya.sharma@ambejewellery.com",
+      "phone": "6202805193",
+      "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "gender": "Male",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "addresses": [
+        {
+          "id": "addr_1",
+          "name": "Kanhaiya Sharma",
+          "phone": "6202805193",
+          "pincode": "800001",
+          "locality": "Near Royal Palace, Main Bazaar",
+          "address": "Ambe Jewellery Showroom Building, 1st Floor, Shop No. 12",
+          "city": "Patna",
+          "state": "Bihar",
+          "landmark": "Opposite Central Bank",
+          "alternatePhone": "6202805193",
+          "type": "WORK",
+          "isDefault": true
+        }
+      ]
+    }
+  ],
+  "carts": {
+    "usr_demo_1": [
+      {
+        "productId": "prod_gold_2",
+        "quantity": 1,
+        "selectedSize": "10 Grams Bar",
+        "addedAt": "2026-10-26T10:00:00.000Z"
+      }
+    ]
+  },
+  "orders": [
+    {
+      "id": "OD-AMBE-98421",
+      "userId": "usr_demo_1",
+      "items": [
+        {
+          "productId": "prod_gold_2",
+          "title": "Lakshmi-Ganesh 24K Pure Gold Coin / Bar (999 Purity)",
+          "purity": "24K Pure Gold (999)",
+          "carat": "24K",
+          "price": 142600,
+          "quantity": 1,
+          "selectedSize": "10 Grams Bar",
+          "image": "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80"
+        }
+      ],
+      "pricing": {
+        "subtotal": 142600,
+        "makingCharges": 1500,
+        "gst": 4278,
+        "discount": 0,
+        "total": 146878
+      },
+      "shippingAddress": {
+        "name": "Kanhaiya Sharma",
+        "phone": "6202805193",
+        "address": "Ambe Jewellery Showroom Building, Main Bazaar, Patna, Bihar - 800001",
+        "type": "WORK"
+      },
+      "deliveryCommitment": {
+        "promisedDate": "28 Oct 2026",
+        "promisedTimeSlot": "Evening 04:00 PM - 07:00 PM",
+        "note": "Guaranteed On-Time Delivery with BIS 999 Hallmark Certificate"
+      },
+      "payment": {
+        "method": "UPI",
+        "upiId": "6202805193@paytm",
+        "status": "COMPLETED",
+        "transactionId": "TXN_AMBE_2026_BIHAR_142600"
+      },
+      "orderStatus": "SHIPPED",
+      "tracking": [
+        { "status": "Order Placed & Registered", "date": "26 Oct 2026, 12:00 PM", "done": true, "note": "Verified by Kanhaiya Sharma" },
+        { "status": "24K BIS Hallmark Certified", "date": "26 Oct 2026, 02:30 PM", "done": true, "note": "Tagged with HUID 999 Hallmark seal" },
+        { "status": "Dispatched via Armored Logistics", "date": "27 Oct 2026", "done": true, "note": "Transit insured via Sequel Secure" },
+        { "status": "Out for Delivery", "date": "28 Oct 2026, 04:00 PM", "done": false, "note": "Promised delivery committed time" },
+        { "status": "Delivered to Customer", "date": "28 Oct 2026", "done": false, "note": "Delivery OTP verification" }
+      ],
+      "createdAt": "2026-10-26T06:30:00.000Z"
+    }
+  ],
+  "chatMessages": [
+    {
+      "id": "msg_welcome",
+      "sender": "Kanhaiya Sharma (Owner)",
+      "text": "Namaste! Main Kanhaiya Sharma hoon. Bihar me aaj 24K Pure Gold ka rate ₹1,42,600 hai. Gold aur Silver dono ke sabhi designs uplabdh hain. Aap pasand karke delivery date aur time book kar sakte hain. Call: 6202805193",
+      "time": "Just now",
+      "isOwner": true
+    }
+  ]
+}
