@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Login / Sign Up | Ambe Jewellery Shop | Kanhaiya Sharma Bihar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#D4AF37',
+              50: '#FDFBF7', 100: '#FBF5E6', 200: '#F5E7C1',
+              300: '#EED598', 400: '#E4BE5A', 500: '#D4AF37',
+              600: '#AA851C', 700: '#805F0F', 800: '#553C07', 900: '#2B1C02'
+            },
+            royal: {
+              950: '#060709', 900: '#0B0C10', 800: '#14161D',
+              700: '#1F232D', 600: '#2D3240'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body { font-family: 'Inter', sans-serif; background: #0B0C10; }
+
+    .auth-bg {
+      background: 
+        radial-gradient(ellipse at top left, rgba(212,175,55,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(212,175,55,0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #060709 0%, #0B0C10 50%, #14161D 100%);
+      min-height: 100vh;
+    }
+
+    .gold-card {
+      background: linear-gradient(145deg, rgba(20,22,29,0.98), rgba(11,12,16,0.99));
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(212,175,55,0.05);
+    }
+
+    .gold-input {
+      background: rgba(11,12,16,0.9);
+      border: 1.5px solid rgba(212,175,55,0.2);
+      color: white;
+      transition: all 0.25s;
+    }
+    .gold-input:focus {
+      border-color: rgba(212,175,55,0.8);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+      outline: none;
+    }
+    .gold-input::placeholder { color: rgba(148,163,184,0.6); }
+
+    .gold-btn {
+      background: linear-gradient(135deg, #E4BE5A, #D4AF37, #AA851C);
+      color: #0B0C10;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+    }
+    .gold-btn:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(212,175,55,0.45); }
+    .gold-btn:active { transform: translateY(0px); }
+    .gold-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .tab-active {
+      background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.08));
+      color: #D4AF37;
+      border-bottom: 2px solid #D4AF37;
+    }
+    .tab-inactive { color: #64748b; border-bottom: 2px solid transparent; }
+
+    .strength-bar { height: 4px; border-radius: 2px; transition: all 0.4s; }
+    .shake { animation: shake 0.4s ease-in-out; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .success-check {
+      animation: checkPop 0.5s ease-out forwards;
+    }
+    @keyframes checkPop {
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .floating-label-group { position: relative; }
+    .input-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .input-with-icon { padding-left: 38px !important; }
+
+    .divider-line {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .divider-line::before, .divider-line::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,175,55,0.2), transparent);
+    }
+
+    .otp-input {
+      width: 44px; height: 50px; text-align: center;
+      font-size: 20px; font-weight: 800;
+      background: rgba(11,12,16,0.9);
+      border: 1.5px solid rgba(212,175,55,0.2);
+      border-radius: 10px; color: #D4AF37;
+      caret-color: #D4AF37;
+      transition: all 0.2s;
+    }
+    .otp-input:focus {
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+      outline: none;
+    }
+  </style>
+</head>
+<body class="auth-bg flex items-center justify-center p-4 py-8">
+
+  <!-- MAIN AUTH CARD -->
+  <div class="gold-card rounded-3xl w-full max-w-md p-6 sm:p-8">
+
+    <!-- HEADER: SHOP LOGO & NAME -->
+    <div class="text-center mb-6">
+      <a href="index.html" class="inline-flex flex-col items-center gap-1 group">
+        <div class="w-16 h-16 rounded-full border-2 border-gold bg-gradient-to-br from-amber-900 to-royal-950 flex items-center justify-center shadow-xl shadow-gold/20 group-hover:scale-105 transition">
+          <i class="fa-solid fa-gem text-gold text-3xl"></i>
+        </div>
+        <h1 class="text-xl font-bold text-white mt-2" style="font-family:'Playfair Display',serif; letter-spacing:0.05em;">AMBE JEWELLERY</h1>
+        <p class="text-[10px] text-amber-200/70 tracking-widest uppercase">Pure Gold & 999 Silver • Bihar</p>
+      </a>
+      <p class="text-[11px] text-slate-400 mt-2">
+        <i class="fa-solid fa-phone text-gold mr-1"></i>
+        Proprietor: <strong class="text-white">Kanhaiya Sharma</strong> • 6202805193
+      </p>
+    </div>
+
+    <!-- TAB SWITCHER -->
+    <div class="flex mb-6 bg-royal-900/60 rounded-2xl p-1 gap-1">
+      <button id="tabLogin" onclick="switchTab('login')"
+        class="flex-1 py-2.5 text-sm font-bold rounded-xl transition-all tab-active"
+        style="font-family:'Inter',sans-serif;">
+        <i class="fa-solid fa-right-to-bracket mr-1.5"></i>Login
+      </button>
+      <button id="tabSignup" onclick="switchTab('signup')"
+        class="flex-1 py-2.5 text-sm font-bold rounded-xl transition-all tab-inactive"
+        style="font-family:'Inter',sans-serif;">
+        <i class="fa-solid fa-user-plus mr-1.5"></i>Sign Up
+      </button>
+    </div>
+
+    <!-- ======================== LOGIN PANEL ======================== -->
+    <div id="loginPanel">
+
+      <!-- Error / Success Messages -->
+      <div id="loginError" class="hidden mb-3 p-3 bg-red-950/80 border border-red-700/50 rounded-xl text-red-300 text-xs flex items-center gap-2">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="loginErrorText">Invalid phone or password</span>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+
+        <!-- Phone / Email -->
+        <div class="floating-label-group">
+          <i class="input-icon fa-solid fa-phone text-gold/60 text-sm"></i>
+          <input type="text" id="loginPhone" required
+            placeholder="Mobile Number ya Email"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3.5 text-sm"
+            inputmode="tel" autocomplete="tel">
+        </div>
+
+        <!-- Password -->
+        <div class="floating-label-group relative">
+          <i class="input-icon fa-solid fa-lock text-gold/60 text-sm"></i>
+          <input type="password" id="loginPass" required
+            placeholder="Password"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3.5 text-sm pr-12"
+            autocomplete="current-password">
+          <button type="button" onclick="togglePass('loginPass', 'eyeLogin')"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold transition p-1">
+            <i id="eyeLogin" class="fa-solid fa-eye text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Forgot Password -->
+        <div class="text-right">
+          <button type="button" onclick="showForgotModal()" class="text-[11px] text-gold/70 hover:text-gold transition">
+            Forgot Password?
+          </button>
+        </div>
+
+        <!-- LOGIN BUTTON -->
+        <button type="submit" id="loginBtn" class="gold-btn w-full py-3.5 rounded-xl text-sm uppercase tracking-wider">
+          <span id="loginBtnText"><i class="fa-solid fa-right-to-bracket mr-2"></i>Login / Sign In</span>
+        </button>
+
+      </form>
+
+      <!-- DIVIDER -->
+      <div class="divider-line my-5">
+        <span class="text-[10px] text-slate-500 uppercase tracking-widest">ya</span>
+      </div>
+
+      <!-- DEMO / QUICK LOGIN -->
+      <div class="space-y-2">
+        <p class="text-[10px] text-slate-500 text-center mb-2">Quick Demo Login — Test Karne Ke Liye</p>
+        <button onclick="demoLogin()" class="w-full py-2.5 bg-amber-500/10 hover:bg-amber-500/20 border border-gold/30 text-gold-300 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-bolt text-gold"></i>
+          Kanhaiya Sharma (Owner) — 1-Click Login
+        </button>
+        <button onclick="demoCustomerLogin()" class="w-full py-2.5 bg-slate-800/60 hover:bg-slate-800 border border-slate-600/30 text-slate-300 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-user text-slate-400"></i>
+          Demo Customer Login
+        </button>
+      </div>
+
+      <p class="text-center text-[11px] text-slate-500 mt-5">
+        New user hain? 
+        <button onclick="switchTab('signup')" class="text-gold font-bold hover:underline">Sign Up karo →</button>
+      </p>
+    </div>
+
+    <!-- ======================== SIGN UP PANEL ======================== -->
+    <div id="signupPanel" class="hidden">
+
+      <!-- Error Message -->
+      <div id="signupError" class="hidden mb-3 p-3 bg-red-950/80 border border-red-700/50 rounded-xl text-red-300 text-xs flex items-center gap-2">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="signupErrorText">Please fill all required fields</span>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div id="signupSuccess" class="hidden text-center py-6">
+        <div class="w-16 h-16 rounded-full bg-emerald-900/60 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto text-3xl mb-3 success-check">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-1">Account Bana Gaya! 🎉</h3>
+        <p class="text-xs text-slate-400 mb-1">Ambe Jewellery Shop mein aapka swagat hai.</p>
+        <p class="text-xs text-gold font-semibold mb-4" id="successUserName"></p>
+        <div class="flex flex-col gap-2">
+          <button onclick="goToShop()" class="gold-btn w-full py-3 rounded-xl text-sm uppercase">
+            <i class="fa-solid fa-gem mr-2"></i>Shop Karna Shuru Karo
+          </button>
+          <button onclick="switchTab('login')" class="w-full py-2.5 bg-royal-900 border border-gold/20 text-slate-300 rounded-xl text-xs font-semibold">
+            Login Karein
+          </button>
+        </div>
+      </div>
+
+      <form id="signupForm" onsubmit="handleSignup(event)" class="space-y-3.5">
+
+        <!-- Full Name -->
+        <div class="floating-label-group">
+          <i class="input-icon fa-solid fa-user text-gold/60 text-sm"></i>
+          <input type="text" id="signupName" required
+            placeholder="Aapka Pura Naam *"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm"
+            autocomplete="name" oninput="clearSignupError()">
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="floating-label-group">
+          <i class="input-icon fa-solid fa-phone text-gold/60 text-sm"></i>
+          <input type="tel" id="signupPhone" required
+            placeholder="Mobile Number (10 Digit) *"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm"
+            inputmode="tel" maxlength="10"
+            autocomplete="tel" oninput="validatePhone(); clearSignupError()">
+          <span id="phoneCheck" class="absolute right-3 top-1/2 -translate-y-1/2 text-sm hidden"></span>
+        </div>
+
+        <!-- Email (Optional) -->
+        <div class="floating-label-group">
+          <i class="input-icon fa-solid fa-envelope text-gold/60 text-sm"></i>
+          <input type="email" id="signupEmail"
+            placeholder="Email (Optional)"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm"
+            autocomplete="email" oninput="clearSignupError()">
+        </div>
+
+        <!-- City / Address -->
+        <div class="floating-label-group">
+          <i class="input-icon fa-solid fa-location-dot text-gold/60 text-sm"></i>
+          <input type="text" id="signupCity"
+            placeholder="Aapka Shehar / District (e.g. Patna, Bihar)"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm"
+            oninput="clearSignupError()">
+        </div>
+
+        <!-- Password -->
+        <div class="floating-label-group relative">
+          <i class="input-icon fa-solid fa-lock text-gold/60 text-sm"></i>
+          <input type="password" id="signupPass" required
+            placeholder="Password banao (min 6 characters) *"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm pr-12"
+            autocomplete="new-password"
+            oninput="checkPasswordStrength(); clearSignupError()">
+          <button type="button" onclick="togglePass('signupPass', 'eyeSignup')"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold transition p-1">
+            <i id="eyeSignup" class="fa-solid fa-eye text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Password Strength Bar -->
+        <div id="strengthContainer" class="hidden space-y-1 -mt-1">
+          <div class="flex gap-1">
+            <div id="bar1" class="strength-bar flex-1 bg-royal-800"></div>
+            <div id="bar2" class="strength-bar flex-1 bg-royal-800"></div>
+            <div id="bar3" class="strength-bar flex-1 bg-royal-800"></div>
+            <div id="bar4" class="strength-bar flex-1 bg-royal-800"></div>
+          </div>
+          <p id="strengthText" class="text-[10px] text-slate-500"></p>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="floating-label-group relative">
+          <i class="input-icon fa-solid fa-shield-halved text-gold/60 text-sm"></i>
+          <input type="password" id="signupConfirmPass" required
+            placeholder="Password dobara likhein *"
+            class="gold-input input-with-icon w-full rounded-xl px-4 py-3 text-sm pr-12"
+            autocomplete="new-password"
+            oninput="checkPasswordMatch(); clearSignupError()">
+          <span id="passMatchIcon" class="absolute right-3 top-1/2 -translate-y-1/2 text-sm hidden"></span>
+        </div>
+
+        <!-- Terms -->
+        <div class="flex items-start gap-2.5 pt-1">
+          <input type="checkbox" id="signupTerms" required
+            class="mt-0.5 w-4 h-4 rounded border-gold/40 bg-royal-900 text-gold accent-amber-500 flex-shrink-0">
+          <label for="signupTerms" class="text-[11px] text-slate-400 leading-relaxed">
+            Main agree karta/karti hoon 
+            <a href="#" class="text-gold hover:underline">Terms & Conditions</a> se. 
+            Ambe Jewellery Shop (Kanhaiya Sharma, Bihar) ki services use karne par.
+          </label>
+        </div>
+
+        <!-- SIGN UP BUTTON -->
+        <button type="submit" id="signupBtn" class="gold-btn w-full py-3.5 rounded-xl text-sm uppercase tracking-wider mt-1">
+          <span id="signupBtnText"><i class="fa-solid fa-user-plus mr-2"></i>Account Banao — Free</span>
+        </button>
+
+      </form>
+
+      <p class="text-center text-[11px] text-slate-500 mt-4">
+        Already account hai? 
+        <button onclick="switchTab('login')" class="text-gold font-bold hover:underline">Login karo →</button>
+      </p>
+    </div>
+
+    <!-- FOOTER TRUST BADGES -->
+    <div class="mt-6 pt-4 border-t border-gold/10 grid grid-cols-3 gap-2 text-center">
+      <div class="text-[9px] text-slate-500">
+        <i class="fa-solid fa-shield-halved text-gold/60 block text-base mb-0.5"></i>
+        100% Secure
+      </div>
+      <div class="text-[9px] text-slate-500">
+        <i class="fa-solid fa-lock text-gold/60 block text-base mb-0.5"></i>
+        Data Private
+      </div>
+      <div class="text-[9px] text-slate-500">
+        <i class="fa-solid fa-award text-gold/60 block text-base mb-0.5"></i>
+        Bihar Trusted
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FORGOT PASSWORD MODAL -->
+  <div id="forgotModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="gold-card rounded-2xl max-w-sm w-full p-6 relative">
+      <button onclick="hideForgotModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="text-center mb-4">
+        <i class="fa-solid fa-key text-gold text-2xl mb-2"></i>
+        <h3 class="text-sm font-bold text-white">Password Reset</h3>
+        <p class="text-[10px] text-slate-400 mt-1">Owner se directly contact karein</p>
+      </div>
+
+      <div class="bg-royal-900/80 rounded-xl p-4 border border-gold/20 space-y-3 text-xs">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-phone text-gold"></i>
+          <div>
+            <div class="text-slate-400">Call Karein</div>
+            <a href="tel:6202805193" class="text-white font-bold">6202805193 (Kanhaiya Sharma)</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+          <div>
+            <div class="text-slate-400">WhatsApp Karein</div>
+            <a href="https://wa.me/916202805193?text=Sir%20mera%20password%20reset%20karna%20hai" target="_blank" class="text-emerald-400 font-bold">WhatsApp Pe Message Karein →</a>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="hideForgotModal()" class="w-full mt-3 py-2 bg-royal-800 text-slate-300 rounded-xl text-xs font-semibold">
+        Wapas Jao
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin + '/api';
+
+    // ─── TAB SWITCHER ───────────────────────────────────────────
+    function switchTab(tab) {
+      const isLogin = tab === 'login';
+      document.getElementById('loginPanel').classList.toggle('hidden', !isLogin);
+      document.getElementById('signupPanel').classList.toggle('hidden', isLogin);
+
+      document.getElementById('tabLogin').className =
+        `flex-1 py-2.5 text-sm font-bold rounded-xl transition-all ${isLogin ? 'tab-active' : 'tab-inactive'}`;
+      document.getElementById('tabSignup').className =
+        `flex-1 py-2.5 text-sm font-bold rounded-xl transition-all ${!isLogin ? 'tab-active' : 'tab-inactive'}`;
+    }
+
+    // ─── PASSWORD VISIBILITY ─────────────────────────────────────
+    function togglePass(inputId, eyeId) {
+      const input = document.getElementById(inputId);
+      const eye = document.getElementById(eyeId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        eye.className = 'fa-solid fa-eye-slash text-sm';
+      } else {
+        input.type = 'password';
+        eye.className = 'fa-solid fa-eye text-sm';
+      }
+    }
+
+    // ─── PHONE VALIDATION ────────────────────────────────────────
+    function validatePhone() {
+      const val = document.getElementById('signupPhone').value.replace(/\D/g,'');
+      const check = document.getElementById('phoneCheck');
+      check.classList.remove('hidden');
+      if (val.length === 10) {
+        check.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i>';
+      } else {
+        check.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-400"></i>';
+      }
+    }
+
+    // ─── PASSWORD STRENGTH ───────────────────────────────────────
+    function checkPasswordStrength() {
+      const pass = document.getElementById('signupPass').value;
+      const container = document.getElementById('strengthContainer');
+      const text = document.getElementById('strengthText');
+      const bars = ['bar1','bar2','bar3','bar4'];
+
+      if (!pass) { container.classList.add('hidden'); return; }
+      container.classList.remove('hidden');
+
+      let score = 0;
+      if (pass.length >= 6) score++;
+      if (pass.length >= 10) score++;
+      if (/[A-Z]/.test(pass) && /[a-z]/.test(pass)) score++;
+      if (/\d/.test(pass) && /[^A-Za-z0-9]/.test(pass)) score++;
+
+      const configs = [
+        { color: '#ef4444', label: 'Bahut Kamzor' },
+        { color: '#f97316', label: 'Kamzor' },
+        { color: '#eab308', label: 'Theek Hai' },
+        { color: '#22c55e', label: 'Mazboot ✓' },
+      ];
+
+      bars.forEach((id, idx) => {
+        const el = document.getElementById(id);
+        el.style.background = idx < score ? configs[score - 1].color : '#1F232D';
+      });
+
+      text.textContent = 'Password: ' + (configs[score - 1]?.label || '');
+      text.style.color = configs[score - 1]?.color || '#64748b';
+    }
+
+    // ─── PASSWORD MATCH CHECK ────────────────────────────────────
+    function checkPasswordMatch() {
+      const pass = document.getElementById('signupPass').value;
+      const confirm = document.getElementById('signupConfirmPass').value;
+      const icon = document.getElementById('passMatchIcon');
+      if (!confirm) { icon.classList.add('hidden'); return; }
+      icon.classList.remove('hidden');
+      if (pass === confirm) {
+        icon.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i>';
+      } else {
+        icon.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-400"></i>';
+      }
+    }
+
+    // ─── ERROR HELPERS ───────────────────────────────────────────
+    function showLoginError(msg) {
+      document.getElementById('loginErrorText').textContent = msg;
+      document.getElementById('loginError').classList.remove('hidden');
+      document.getElementById('loginForm').classList.add('shake');
+      setTimeout(() => document.getElementById('loginForm').classList.remove('shake'), 400);
+    }
+    function hideLoginError() { document.getElementById('loginError').classList.add('hidden'); }
+
+    function showSignupError(msg) {
+      document.getElementById('signupErrorText').textContent = msg;
+      document.getElementById('signupError').classList.remove('hidden');
+      document.getElementById('signupForm').classList.add('shake');
+      setTimeout(() => document.getElementById('signupForm').classList.remove('shake'), 400);
+    }
+    function clearSignupError() { document.getElementById('signupError').classList.add('hidden'); }
+
+    // ─── LOGIN ───────────────────────────────────────────────────
+    async function handleLogin(e) {
+      e.preventDefault();
+      hideLoginError();
+
+      const identifier = document.getElementById('loginPhone').value.trim();
+      const password = document.getElementById('loginPass').value;
+
+      if (!identifier || !password) {
+        showLoginError('Mobile number aur password dono required hain!');
+        return;
+      }
+
+      const btn = document.getElementById('loginBtn');
+      const btnText = document.getElementById('loginBtnText');
+      btn.disabled = true;
+      btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Login ho raha hai...';
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ identifier, password })
+        });
+        const data = await res.json();
+
+        if (data && data.success && data.token) {
+          localStorage.setItem('ambe_token', data.token);
+          localStorage.setItem('ambe_user', JSON.stringify(data.user));
+          btnText.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Login Successful!';
+
+          // Redirect to shop after 0.8s
+          setTimeout(() => {
+            const redirect = new URLSearchParams(window.location.search).get('redirect');
+            window.location.href = redirect || 'index.html';
+          }, 800);
+        } else {
+          btn.disabled = false;
+          btnText.innerHTML = '<i class="fa-solid fa-right-to-bracket mr-2"></i>Login / Sign In';
+          showLoginError(data?.message || 'Mobile number ya password galat hai!');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btnText.innerHTML = '<i class="fa-solid fa-right-to-bracket mr-2"></i>Login / Sign In';
+        showLoginError('Server se connect nahi ho pa raha. Dobara try karein.');
+      }
+    }
+
+    // ─── DEMO LOGINS ─────────────────────────────────────────────
+    function demoLogin() {
+      document.getElementById('loginPhone').value = '6202805193';
+      document.getElementById('loginPass').value = 'password123';
+      handleLogin(new Event('submit'));
+    }
+    function demoCustomerLogin() {
+      document.getElementById('loginPhone').value = 'customer@ambe.in';
+      document.getElementById('loginPass').value = 'customer123';
+      handleLogin(new Event('submit'));
+    }
+
+    // ─── SIGN UP ─────────────────────────────────────────────────
+    async function handleSignup(e) {
+      e.preventDefault();
+      clearSignupError();
+
+      const name  = document.getElementById('signupName').value.trim();
+      const phone = document.getElementById('signupPhone').value.replace(/\D/g,'');
+      const email = document.getElementById('signupEmail').value.trim();
+      const city  = document.getElementById('signupCity').value.trim();
+      const pass  = document.getElementById('signupPass').value;
+      const confirmPass = document.getElementById('signupConfirmPass').value;
+
+      // Validations
+      if (!name || name.length < 2) { showSignupError('Apna pura naam likhein (kam se kam 2 characters).'); return; }
+      if (phone.length !== 10) { showSignupError('10-digit valid mobile number likhein.'); return; }
+      if (pass.length < 6) { showSignupError('Password kam se kam 6 characters ka hona chahiye.'); return; }
+      if (pass !== confirmPass) { showSignupError('Password aur Confirm Password match nahi kar rahe!'); return; }
+
+      const btn = document.getElementById('signupBtn');
+      const btnText = document.getElementById('signupBtnText');
+      btn.disabled = true;
+      btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Account ban raha hai...';
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, email, password: pass, city })
+        });
+        const data = await res.json();
+
+        if (data && data.success) {
+          // Auto-login if token returned
+          if (data.token) {
+            localStorage.setItem('ambe_token', data.token);
+            localStorage.setItem('ambe_user', JSON.stringify(data.user));
+          }
+          // Show success UI
+          document.getElementById('signupForm').classList.add('hidden');
+          document.getElementById('signupError').classList.add('hidden');
+          document.getElementById('signupSuccess').classList.remove('hidden');
+          document.getElementById('successUserName').textContent =
+            `Namaste, ${data.user?.name || name}! 🙏`;
+        } else {
+          btn.disabled = false;
+          btnText.innerHTML = '<i class="fa-solid fa-user-plus mr-2"></i>Account Banao — Free';
+          showSignupError(data?.message || 'Account nahi bana. Dobara try karein.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btnText.innerHTML = '<i class="fa-solid fa-user-plus mr-2"></i>Account Banao — Free';
+        showSignupError('Server se connect nahi ho pa raha. Dobara try karein.');
+      }
+    }
+
+    function goToShop() {
+      window.location.href = 'index.html';
+    }
+
+    // ─── FORGOT PASSWORD MODAL ───────────────────────────────────
+    function showForgotModal() { document.getElementById('forgotModal').classList.remove('hidden'); }
+    function hideForgotModal() { document.getElementById('forgotModal').classList.add('hidden'); }
+
+    // ─── AUTO-OPEN SIGNUP TAB IF HASH IS #signup ────────────────
+    if (window.location.hash === '#signup' || localStorage.getItem('ambe_auth_tab') === 'signup') {
+      localStorage.removeItem('ambe_auth_tab');
+      switchTab('signup');
+    }
+
+    // ─── AUTO REDIRECT IF ALREADY LOGGED IN ─────────────────────
+    (function checkExistingSession() {
+      const token = localStorage.getItem('ambe_token');
+      if (token) {
+        fetch(`${API_BASE}/auth/me`, { headers: { 'Authorization': `Bearer ${token}` } })
+          .then(r => r.json())
+          .then(data => {
+            if (data && data.success) {
+              window.location.href = 'index.html';
+            }
+          }).catch(() => {});
+      }
+    })();
+  </script>
+
+</body>
+</html>

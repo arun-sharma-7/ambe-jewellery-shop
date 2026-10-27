@@ -1097,8 +1097,8 @@ function renderUserNav() {
     `;
   } else {
     container.innerHTML = `
-      <button onclick="openAuthModal()" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-gold text-royal-950 font-bold rounded-xl text-xs uppercase">
-        Login
+      <button onclick="window.location.href='auth.html'" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-gold text-royal-950 font-bold rounded-xl text-xs uppercase">
+        Login / Sign Up
       </button>
     `;
   }

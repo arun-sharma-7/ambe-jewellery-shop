@@ -384,8 +384,8 @@ const server = http.createServer(async (req, res) => {
       });
     }
 
-    // 5. AUTH: SIGNUP & LOGIN
-    if (pathname === '/api/auth/signup' && method === 'POST') {
+    // 5. AUTH: SIGNUP & LOGIN (both /signup and /register supported)
+    if ((pathname === '/api/auth/signup' || pathname === '/api/auth/register') && method === 'POST') {
       const body = await parseBody(req);
       const { name, email, phone, password } = body;
 
@@ -409,6 +409,7 @@ const server = http.createServer(async (req, res) => {
         phone: (phone || '').trim(),
         passwordHash: hashPassword(password),
         gender: body.gender || 'Not Specified',
+        city: (body.city || '').trim(),
         createdAt: new Date().toISOString(),
         addresses: []
       };
