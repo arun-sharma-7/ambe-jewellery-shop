@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Ambe Jewellery Shop | Owner: Kanhaiya Sharma (6202805193) | Bihar 24K Gold ₹1,42,600</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Custom Luxury CSS -->
+  <!-- Custom Luxury Mobile-First CSS -->
   <link rel="stylesheet" href="style.css">
   <script>
     tailwind.config = {
@@ -43,158 +43,125 @@
 </head>
 <body class="bg-royal-900 text-slate-100 min-h-screen flex flex-col antialiased">
 
-  <!-- 1. TOP ANNOUNCEMENT & OWNER TICKER BAR (BIHAR LIVE 24K: ₹1,42,600) -->
-  <div class="bg-gradient-to-r from-amber-950 via-gold-900 to-amber-950 text-gold-200 text-xs py-2 px-4 border-b border-gold/30">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-4 flex-wrap">
-        <span class="flex items-center gap-1.5 font-semibold text-gold-300">
-          <i class="fa-solid fa-crown text-gold"></i> Ambe Jewellery Shop (Bihar)
+  <!-- 1. COMPACT TOP TICKER BAR -->
+  <div class="bg-gradient-to-r from-amber-950 via-gold-900 to-amber-950 text-gold-200 text-[11px] py-1.5 px-3 border-b border-gold/30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <!-- Left: Shop & Owner info -->
+      <div class="flex items-center gap-2 truncate">
+        <span class="font-bold text-white flex items-center gap-1">
+          <i class="fa-solid fa-crown text-gold"></i> Ambe Jewellery
         </span>
-        <span class="hidden md:inline text-gold-400/60">|</span>
-        <span class="flex items-center gap-1.5">
-          <i class="fa-solid fa-user-tie text-gold"></i> Proprietor: <strong class="text-white">Kanhaiya Sharma</strong>
+        <span class="text-gold-400/60">•</span>
+        <span class="truncate text-slate-300">
+          Owner: <strong class="text-white">Kanhaiya Sharma</strong>
         </span>
-        <span class="hidden md:inline text-gold-400/60">|</span>
-        <a href="tel:6202805193" class="flex items-center gap-1.5 hover:text-white transition">
-          <i class="fa-solid fa-phone text-gold"></i> VIP Direct Line: <strong class="text-white">6202805193</strong>
-        </a>
       </div>
-      <div class="flex items-center gap-3 text-[11px]">
-        <div id="topGoldRate" class="flex items-center gap-2 bg-royal-950/70 px-2.5 py-0.5 rounded border border-gold/30">
-          <span class="text-amber-400 font-bold"><i class="fa-solid fa-bolt"></i> Bihar 24K Gold:</span>
-          <span class="font-black text-white">₹1,42,600 / 10g</span>
+
+      <!-- Right: Live 24K Bihar Rate -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <div id="topGoldRate" onclick="toggleSideRates(true)" class="cursor-pointer bg-royal-950/80 px-2 py-0.5 rounded border border-gold/30 flex items-center gap-1 font-bold">
+          <span class="text-amber-400"><i class="fa-solid fa-bolt text-[10px]"></i> 24K:</span>
+          <span class="text-white font-black">₹1,42,600</span>
         </div>
-        <div class="hidden sm:flex items-center gap-1 text-slate-300">
-          <span>Silver 1Kg:</span>
-          <strong class="text-white">₹98,500</strong>
-        </div>
-        <button onclick="openOwnerStudioModal()" class="bg-amber-500/20 hover:bg-amber-500/30 text-gold-300 border border-gold/40 px-2.5 py-0.5 rounded transition flex items-center gap-1 font-semibold">
-          <i class="fa-solid fa-sliders"></i> Admin Studio
-        </button>
-        <button onclick="toggleSideRates(true)" class="bg-royal-900 hover:bg-royal-800 text-gold border border-gold/40 px-2 py-0.5 rounded transition flex items-center gap-1 font-semibold">
-          <i class="fa-solid fa-chart-line text-emerald-400"></i> Side Rates
+        <button onclick="openOwnerStudioModal()" class="hidden md:inline-flex bg-amber-500/20 hover:bg-amber-500/30 text-gold-300 border border-gold/40 px-2 py-0.5 rounded text-[10px] font-semibold items-center gap-1">
+          <i class="fa-solid fa-sliders"></i> Admin
         </button>
       </div>
     </div>
   </div>
 
-  <!-- 2. MAIN LUXURY NAVIGATION HEADER -->
-  <header class="sticky top-0 z-40 bg-royal-950/90 backdrop-blur-md border-b border-gold/20 shadow-xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+  <!-- 2. MAIN NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-royal-950/95 backdrop-blur-md border-b border-gold/20 shadow-xl">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
         
         <!-- Brand Logo -->
-        <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
-          <div class="w-12 h-12 rounded-full border border-gold bg-gradient-to-br from-amber-900 to-royal-950 flex items-center justify-center shadow-lg shadow-gold/20">
-            <i class="fa-solid fa-gem text-gold text-2xl"></i>
+        <div class="flex items-center gap-2.5 cursor-pointer flex-shrink-0" onclick="switchView('home')">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold bg-gradient-to-br from-amber-900 to-royal-950 flex items-center justify-center shadow-lg shadow-gold/20">
+            <i class="fa-solid fa-gem text-gold text-lg sm:text-2xl"></i>
           </div>
           <div>
-            <h1 class="text-xl sm:text-2xl font-serif-luxury font-bold tracking-wider text-gold-gradient">
+            <h1 class="text-base sm:text-2xl font-serif-luxury font-bold tracking-wider text-gold-gradient">
               AMBE JEWELLERY
             </h1>
-            <p class="text-[10px] tracking-widest uppercase text-amber-200/80 -mt-1 font-medium">
-              Pure Gold & 999 Silver • Owner: Kanhaiya Sharma (6202805193)
+            <p class="text-[9px] sm:text-[10px] tracking-wider uppercase text-amber-200/80 -mt-0.5 font-medium">
+              Pure Gold & 999 Silver • Bihar
             </p>
           </div>
         </div>
 
-        <!-- Search Bar -->
-        <div class="hidden lg:flex items-center flex-1 max-w-md mx-8">
+        <!-- Desktop Search Bar -->
+        <div class="hidden lg:flex items-center flex-1 max-w-md mx-6">
           <div class="relative w-full">
             <input type="text" id="searchInput" placeholder="Search 24K/22K Gold, Silver Payal, Coins, Haar..." 
-                   class="w-full bg-royal-800/90 text-sm text-white placeholder-slate-400 pl-10 pr-4 py-2.5 rounded-full border border-gold/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
-            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gold-400 text-sm"></i>
+                   class="w-full bg-royal-800/90 text-xs sm:text-sm text-white placeholder-slate-400 pl-9 pr-4 py-2 rounded-full border border-gold/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gold-400 text-xs"></i>
           </div>
         </div>
 
         <!-- Right Action Items -->
-        <div class="flex items-center gap-2.5 sm:gap-4">
+        <div class="flex items-center gap-2 sm:gap-3">
           
-          <!-- Live Chat Button -->
-          <button onclick="toggleLiveChat(true)" class="flex items-center gap-2 text-xs bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 px-3 py-2 rounded-xl text-emerald-200 transition">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-green"></span>
-            <div class="text-left hidden sm:block">
-              <div class="text-[9px] uppercase tracking-wider text-emerald-300">Live Baat Karein</div>
-              <div class="font-bold text-white">Owner Kanhaiya</div>
-            </div>
-          </button>
-
-          <!-- Add Product / Admin Button -->
-          <button onclick="openAddProductModal()" class="hidden md:flex items-center gap-1.5 text-xs bg-royal-800 hover:bg-royal-700 border border-gold/40 text-gold px-3 py-2 rounded-xl font-bold transition">
-            <i class="fa-solid fa-plus-circle text-sm"></i>
-            <span>Add Gold / Silver</span>
-          </button>
-
           <!-- Direct Call Icon -->
-          <a href="tel:6202805193" class="hidden sm:flex items-center gap-2 text-xs bg-royal-800/80 hover:bg-royal-700 border border-gold/30 px-3 py-2 rounded-lg text-gold-200 transition">
-            <i class="fa-solid fa-phone text-gold"></i>
-            <div>
-              <div class="text-[9px] uppercase tracking-wider text-slate-400">Call Owner</div>
-              <div class="font-bold text-white">6202805193</div>
-            </div>
+          <a href="tel:6202805193" title="Call Owner Kanhaiya Sharma" 
+             class="flex items-center gap-1.5 text-xs bg-royal-800/90 hover:bg-royal-700 border border-gold/30 p-2 sm:px-3 sm:py-2 rounded-xl text-gold-200 transition">
+            <i class="fa-solid fa-phone text-gold text-sm"></i>
+            <span class="hidden md:inline font-bold text-white text-[11px]">6202805193</span>
           </a>
 
           <!-- Cart Trigger Button -->
-          <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl bg-royal-800/90 border border-gold/30 hover:border-gold text-gold-200 hover:text-white transition">
-            <i class="fa-solid fa-bag-shopping text-lg"></i>
-            <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-amber-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">
+          <button onclick="toggleCartDrawer(true)" class="relative p-2 sm:p-2.5 rounded-xl bg-royal-800/90 border border-gold/30 hover:border-gold text-gold-200 hover:text-white transition">
+            <i class="fa-solid fa-bag-shopping text-base sm:text-lg"></i>
+            <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-red-600 to-amber-600 text-white text-[10px] sm:text-[11px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow">
               0
             </span>
           </button>
 
-          <!-- Auth / Profile Button Area -->
+          <!-- Auth / Profile Button -->
           <div id="userNavContainer" class="relative"></div>
 
         </div>
 
       </div>
 
-      <!-- Metal & Category Navigation Links -->
-      <nav class="hidden md:flex items-center justify-between border-t border-gold/15 py-2.5 text-xs font-medium tracking-wide">
-        <div class="flex items-center gap-5">
-          <button onclick="switchView('home')" class="hover:text-gold transition text-gold font-semibold flex items-center gap-1.5">
-            <i class="fa-solid fa-house text-[10px]"></i> Home
-          </button>
-          
-          <!-- Gold Filter -->
-          <button onclick="filterByMetal('Gold')" class="hover:text-gold transition text-amber-300 font-bold flex items-center gap-1">
-            <i class="fa-solid fa-coins text-gold"></i> Pure Gold (24K / 22K)
-          </button>
-
-          <!-- Silver Filter -->
-          <button onclick="filterByMetal('Silver')" class="hover:text-gold transition text-slate-200 font-bold flex items-center gap-1">
-            <i class="fa-solid fa-ring text-slate-300"></i> Pure Silver (Chandi 999)
-          </button>
-
-          <button onclick="filterCategory('Necklaces')" class="hover:text-gold transition text-slate-300">
-            Gold Necklaces (Haar)
-          </button>
-          <button onclick="filterCategory('Silver')" class="hover:text-gold transition text-slate-300">
-            Silver Payal & Pooja Thali
-          </button>
-          <button onclick="filterCategory('Coins')" class="hover:text-gold transition text-slate-300">
-            24K Gold & Silver Coins
-          </button>
-          <button onclick="filterCategory('Bangles')" class="hover:text-gold transition text-slate-300">
-            Kada & Bangles
-          </button>
+      <!-- Mobile Search Bar (Visible on phones) -->
+      <div class="lg:hidden pb-2.5 pt-0.5">
+        <div class="relative w-full">
+          <input type="text" id="mobileSearchInput" oninput="handleMobileSearch(event)" placeholder="Search Gold, Silver, Haar, Payal, Coins..." 
+                 class="w-full bg-royal-900 text-xs text-white placeholder-slate-400 pl-8 pr-3 py-2 rounded-xl border border-gold/30 focus:outline-none focus:border-gold">
+          <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-gold-400 text-xs"></i>
         </div>
-        
-        <div class="flex items-center gap-3 text-gold-400 text-[11px]">
-          <span class="text-emerald-400 font-semibold flex items-center gap-1">
-            <i class="fa-solid fa-calendar-check"></i> Promised Date Delivery Available
-          </span>
-          <span>•</span>
-          <span>100% BIS Hallmarked</span>
-        </div>
-      </nav>
+      </div>
+
+      <!-- Mobile & Desktop Horizontal Scrollable Category Bar -->
+      <div class="flex items-center gap-2 overflow-x-auto py-2 text-xs font-semibold scrollbar-none border-t border-gold/15">
+        <button onclick="filterCategory('All')" class="cat-pill active px-3.5 py-1 rounded-full whitespace-nowrap bg-gold text-royal-950 transition">
+          ✨ All Items
+        </button>
+        <button onclick="filterByMetal('Gold')" class="cat-pill px-3.5 py-1 rounded-full whitespace-nowrap bg-royal-800 text-amber-300 border border-gold/30 hover:text-white transition">
+          👑 Pure Gold (24K/22K)
+        </button>
+        <button onclick="filterByMetal('Silver')" class="cat-pill px-3.5 py-1 rounded-full whitespace-nowrap bg-royal-800 text-slate-200 border border-slate-600 hover:text-white transition">
+          💍 Pure Silver (999)
+        </button>
+        <button onclick="filterCategory('Necklaces')" class="cat-pill px-3.5 py-1 rounded-full whitespace-nowrap bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
+          📿 Gold Necklaces
+        </button>
+        <button onclick="filterCategory('Silver')" class="cat-pill px-3.5 py-1 rounded-full whitespace-nowrap bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
+          ✨ Silver Payal & Thali
+        </button>
+        <button onclick="filterCategory('Coins')" class="cat-pill px-3.5 py-1 rounded-full whitespace-nowrap bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
+          🪙 Coins & Bars
+        </button>
+      </div>
 
     </div>
   </header>
 
-  <!-- 3. STICKY SIDE LIVE GOLD & SILVER RATES WIDGET -->
-  <aside id="sideRatesDock" class="side-rates-dock flex items-center">
+  <!-- 3. STICKY / BOTTOM SHEET LIVE GOLD & SILVER RATES WIDGET -->
+  <aside id="sideRatesDock" class="side-rates-dock collapsed">
     
+    <!-- Desktop Side Tab Button -->
     <button onclick="toggleSideRates()" class="bg-gradient-to-b from-amber-600 via-gold to-amber-700 text-royal-950 font-black py-4 px-2.5 rounded-l-2xl shadow-2xl flex flex-col items-center gap-2 cursor-pointer hover:brightness-110 border-y border-l border-gold/40">
       <i class="fa-solid fa-coins text-sm animate-bounce"></i>
       <span class="text-[11px] font-bold tracking-widest uppercase [writing-mode:vertical-lr] rotate-180">
@@ -203,7 +170,8 @@
       <span class="w-2 h-2 rounded-full bg-emerald-950 pulse-green"></span>
     </button>
 
-    <div class="w-80 bg-royal-950/95 backdrop-blur-md border border-gold/30 p-5 rounded-l-2xl shadow-2xl text-xs space-y-4">
+    <!-- Side Drawer Content (Becomes clean Bottom Sheet on Mobile) -->
+    <div class="w-80 bg-royal-950/98 backdrop-blur-md border border-gold/30 p-5 rounded-l-2xl shadow-2xl text-xs space-y-4">
       
       <div class="flex items-center justify-between pb-3 border-b border-gold/20">
         <div class="flex items-center gap-2">
@@ -213,13 +181,13 @@
             <div id="sideMarketStatus" class="text-[10px] text-emerald-400 font-semibold">LIVE MARKET OPEN (BIHAR)</div>
           </div>
         </div>
-        <button onclick="toggleSideRates(false)" class="text-slate-400 hover:text-white p-1">
-          <i class="fa-solid fa-chevron-right"></i>
+        <button onclick="toggleSideRates(false)" class="w-7 h-7 rounded-full bg-royal-900 border border-gold/20 text-slate-300 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
 
       <!-- Live Rate Cards -->
-      <div class="space-y-2.5">
+      <div class="space-y-2">
         <div class="flex items-center justify-between p-2.5 bg-royal-900/90 rounded-xl border border-gold/40 shadow">
           <div>
             <div class="text-[10px] text-amber-300 font-bold">24K Pure Gold (Bihar Rate)</div>
@@ -253,75 +221,67 @@
         </div>
       </div>
 
-      <!-- LIVE GOLD & SILVER PRICE CALCULATOR -->
-      <div class="bg-royal-900/90 p-3.5 rounded-xl border border-gold/20 space-y-2.5">
+      <!-- Live Calculator -->
+      <div class="bg-royal-900/90 p-3 rounded-xl border border-gold/20 space-y-2">
         <div class="flex items-center justify-between text-[11px] font-bold text-gold-300">
-          <span><i class="fa-solid fa-calculator text-gold mr-1"></i> Live Bullion Calculator</span>
-          <span class="text-[9px] text-slate-400">3% GST</span>
+          <span><i class="fa-solid fa-calculator text-gold mr-1"></i> Live Gold Calculator</span>
+          <span class="text-[9px] text-slate-400">+3% GST</span>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label class="text-[10px] text-slate-400">Weight (Grams)</label>
             <input type="number" id="calcGrams" value="10" min="0.1" step="0.1" oninput="calculateLiveGoldEstimate()" 
-                   class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-xs text-white focus:outline-none focus:border-gold">
+                   class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-xs text-white">
           </div>
           <div>
             <label class="text-[10px] text-slate-400">Metal & Carat</label>
-            <select id="calcKarat" onchange="calculateLiveGoldEstimate()" class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-xs text-white focus:outline-none focus:border-gold">
+            <select id="calcKarat" onchange="calculateLiveGoldEstimate()" class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-xs text-white">
               <option value="24">24K Gold (₹1,42,600)</option>
               <option value="22">22K Gold (₹1,30,700)</option>
               <option value="18">18K Gold (₹1,06,950)</option>
               <option value="silver999">Pure Silver 999 (₹985/10g)</option>
-              <option value="silver925">Silver 925 (₹915/10g)</option>
             </select>
           </div>
         </div>
 
         <div class="p-2 bg-royal-950/80 rounded-lg border border-gold/15 flex items-center justify-between text-xs">
-          <span class="text-slate-400">Estimated Cost:</span>
+          <span class="text-slate-400">Estimated Total:</span>
           <strong id="calcResult" class="text-gold font-black text-sm">₹1,50,000</strong>
         </div>
       </div>
 
-      <div class="pt-1 flex gap-2">
-        <button onclick="openRateEditModal()" class="w-full py-2 bg-royal-900 hover:bg-royal-800 text-gold-300 border border-gold/30 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5">
+      <div class="flex gap-2">
+        <button onclick="openRateEditModal(); toggleSideRates(false);" class="w-full py-2 bg-royal-900 hover:bg-royal-800 text-gold-300 border border-gold/30 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5">
           <i class="fa-solid fa-pen-to-square"></i> Admin: Update Rates
         </button>
-      </div>
-
-      <div class="text-[10px] text-center text-slate-400">
-        Showroom Helpline: <strong class="text-white">6202805193</strong> (Kanhaiya Sharma)
       </div>
 
     </div>
   </aside>
 
-  <!-- 4. REAL-TIME CUSTOMER LIVE CHAT BOX (Customer Live Baat Kar Sake) -->
+  <!-- 4. REAL-TIME CUSTOMER LIVE CHAT BOX -->
   <div id="liveChatPanel" class="live-chat-panel hidden">
     <div class="bg-royal-950 border border-gold/40 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[490px]">
       
-      <div class="bg-gradient-to-r from-royal-900 to-amber-950 p-4 border-b border-gold/20 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="relative">
-            <div class="w-10 h-10 rounded-full border border-gold bg-gold/20 flex items-center justify-center text-gold font-bold">
-              KS
-            </div>
-            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-royal-950"></span>
+      <div class="bg-gradient-to-r from-royal-900 to-amber-950 p-3.5 border-b border-gold/20 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-full border border-gold bg-gold/20 flex items-center justify-center text-gold font-bold text-xs">
+            KS
           </div>
           <div>
             <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
               <span>Kanhaiya Sharma</span>
-              <span class="bg-gold/20 text-gold text-[9px] px-1.5 rounded">Owner</span>
+              <span class="bg-gold/20 text-gold text-[9px] px-1 rounded">Owner</span>
             </h4>
             <p class="text-[10px] text-emerald-400 flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online • Bihar Rate & Delivery Support
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-green"></span> Online • Bihar Rate & Delivery Support
             </p>
           </div>
         </div>
         
-        <div class="flex items-center gap-2">
-          <a href="tel:6202805193" title="Call Kanhaiya Sharma" class="w-7 h-7 rounded-full bg-royal-800 border border-gold/30 text-gold flex items-center justify-center text-xs hover:bg-royal-700">
+        <div class="flex items-center gap-1.5">
+          <a href="tel:6202805193" title="Call" class="w-7 h-7 rounded-full bg-royal-800 text-gold flex items-center justify-center text-xs">
             <i class="fa-solid fa-phone"></i>
           </a>
           <button onclick="toggleLiveChat(false)" class="w-7 h-7 rounded-full bg-royal-800 text-slate-400 hover:text-white flex items-center justify-center text-xs">
@@ -330,30 +290,27 @@
         </div>
       </div>
 
-      <div id="chatMessagesContainer" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs"></div>
+      <div id="chatMessagesContainer" class="flex-1 p-3.5 overflow-y-auto space-y-2.5 text-xs"></div>
 
-      <div class="px-3 py-2 bg-royal-900/60 border-t border-gold/15 flex gap-1.5 overflow-x-auto scrollbar-none text-[10px]">
-        <button onclick="sendQuickPrompt('Bihar me 24K Gold ka rate 142600 hai?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-royal-800 hover:bg-royal-700 text-gold-200 border border-gold/20">
-          💰 Bihar 24K Rate ₹1,42,600
+      <div class="px-2.5 py-1.5 bg-royal-900/60 border-t border-gold/15 flex gap-1 overflow-x-auto scrollbar-none text-[10px]">
+        <button onclick="sendQuickPrompt('Bihar me 24K Gold ka rate 142600 hai?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-royal-800 text-gold-200 border border-gold/20">
+          💰 24K Rate ₹1,42,600
         </button>
-        <button onclick="sendQuickPrompt('Gold aur Silver items ki delivery kis din tak mil jayegi?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-royal-800 hover:bg-royal-700 text-gold-200 border border-gold/20">
-          📅 Delivery Date & Time
-        </button>
-        <button onclick="sendQuickPrompt('Pure Silver Pooja Thali aur Payal ke designs dikhayein')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-royal-800 hover:bg-royal-700 text-gold-200 border border-gold/20">
-          ✨ Silver Designs
+        <button onclick="sendQuickPrompt('Gold aur Silver items ki delivery kis din tak mil jayegi?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-royal-800 text-gold-200 border border-gold/20">
+          📅 Delivery Date
         </button>
       </div>
 
-      <form onsubmit="handleSendChatMessage(event)" class="p-3 bg-royal-900/90 border-t border-gold/20 flex items-center gap-2">
-        <input type="text" id="chatInputText" placeholder="Kanhaiya ji se seedhe baat karein..." 
+      <form onsubmit="handleSendChatMessage(event)" class="p-2.5 bg-royal-900/90 border-t border-gold/20 flex items-center gap-2">
+        <input type="text" id="chatInputText" placeholder="Kanhaiya ji se baat karein..." 
                class="flex-1 bg-royal-950 border border-gold/20 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-gold">
         
-        <button type="submit" class="w-9 h-9 rounded-xl bg-gold hover:bg-amber-400 text-royal-950 font-bold flex items-center justify-center transition shadow">
+        <button type="submit" class="w-8 h-8 rounded-xl bg-gold text-royal-950 font-bold flex items-center justify-center shadow">
           <i class="fa-solid fa-paper-plane text-xs"></i>
         </button>
 
-        <a id="chatDirectWaBtn" href="https://wa.me/916202805193" target="_blank" title="Continue on WhatsApp" 
-           class="w-9 h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center transition">
+        <a id="chatDirectWaBtn" href="https://wa.me/916202805193" target="_blank" title="WhatsApp" 
+           class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
           <i class="fa-brands fa-whatsapp text-sm"></i>
         </a>
       </form>
@@ -361,129 +318,78 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT CONTAINER -->
+  <!-- MAIN APP CONTAINER -->
   <main id="mainApp" class="flex-grow">
 
     <!-- VIEW 1: HOME & STOREFRONT VIEW -->
     <div id="homeView" class="view-panel">
       
       <!-- HERO WALLPAPER BANNER -->
-      <section class="relative min-h-[580px] lg:min-h-[640px] flex items-center justify-center overflow-hidden">
+      <section class="relative min-h-[380px] sm:min-h-[500px] flex items-center justify-center overflow-hidden">
         <div id="heroWallpaper" class="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-105"
              style="background-image: linear-gradient(to right, rgba(11, 12, 16, 0.92) 0%, rgba(11, 12, 16, 0.70) 50%, rgba(11, 12, 16, 0.88) 100%), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=85');">
         </div>
 
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-16">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-950/80 border border-gold/40 text-gold-300 text-xs tracking-widest uppercase mb-6 shadow-lg">
-            <i class="fa-solid fa-certificate text-gold"></i> Bihar 24K Pure Gold: ₹1,42,600 • Pure Silver 999
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-10 sm:py-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-royal-950/80 border border-gold/40 text-gold-300 text-[10px] sm:text-xs tracking-wider uppercase mb-3 shadow">
+            <i class="fa-solid fa-certificate text-gold"></i> Bihar 24K Gold: ₹1,42,600 • Pure Silver 999
           </div>
 
-          <h2 class="hero-heading text-3xl sm:text-5xl lg:text-6xl font-serif-luxury font-black text-white leading-tight mb-6">
-            All Gold & Silver Ornaments Menu <br>
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-serif-luxury font-black text-white leading-tight mb-3 sm:mb-4">
+            Gold & Silver Jewellery Menu <br>
             <span class="text-gold-gradient">Ambe Jewellery Shop</span>
           </h2>
 
-          <p class="font-sub-luxury text-lg sm:text-2xl text-amber-100/90 max-w-2xl mx-auto mb-8 font-light italic">
-            "Aap design pasand karein, hum aapke committed date & time par delivered karenge" — Proprietor <strong>Kanhaiya Sharma</strong> (Phone: 6202805193).
+          <p class="font-sub-luxury text-sm sm:text-xl text-amber-100/90 max-w-2xl mx-auto mb-6 font-light italic">
+            "Aap design choose karein, hum aapke committed date & time par delivery karenge" — <strong>Kanhaiya Sharma</strong> (6202805193).
           </p>
 
-          <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <button onclick="filterByMetal('Gold')" class="px-8 py-3.5 bg-gradient-to-r from-amber-500 via-gold to-amber-600 hover:brightness-110 text-royal-950 font-bold rounded-full shadow-lg shadow-gold/25 transition flex items-center gap-2 text-sm tracking-wide">
-              <span>EXPLORE ALL GOLD ITEMS</span>
+          <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+            <button onclick="filterByMetal('Gold')" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 via-gold to-amber-600 text-royal-950 font-bold rounded-full text-xs shadow transition flex items-center gap-1.5">
+              <span>All Gold Items</span>
               <i class="fa-solid fa-coins"></i>
             </button>
-            <button onclick="filterByMetal('Silver')" class="px-8 py-3.5 bg-slate-200 hover:bg-white text-royal-950 font-bold rounded-full shadow-lg transition flex items-center gap-2 text-sm tracking-wide">
-              <span>EXPLORE ALL SILVER (CHANDI)</span>
-              <i class="fa-solid fa-gem"></i>
+            <button onclick="filterByMetal('Silver')" class="px-5 py-2.5 bg-slate-200 text-royal-950 font-bold rounded-full text-xs shadow transition flex items-center gap-1.5">
+              <span>All Silver (Chandi)</span>
+              <i class="fa-solid fa-ring"></i>
             </button>
-            <button onclick="toggleLiveChat(true)" class="px-7 py-3.5 bg-royal-950/80 hover:bg-royal-800 text-gold border border-gold/50 rounded-full font-semibold transition flex items-center gap-2 text-sm">
+            <button onclick="toggleLiveChat(true)" class="px-4 py-2.5 bg-royal-950/80 text-gold border border-gold/50 rounded-full font-semibold text-xs flex items-center gap-1.5">
               <i class="fa-solid fa-comments text-emerald-400"></i>
-              <span>Customer Live Baat Karein</span>
+              <span>Live Baat Karein</span>
             </button>
           </div>
 
-          <!-- 4 Trust Badges -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div class="bg-royal-950/70 backdrop-blur-md p-3.5 rounded-xl border border-gold/25 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center text-lg">
-                <i class="fa-solid fa-award"></i>
-              </div>
+          <!-- 4 Trust Badges in clean 2x2 grid on mobile -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto text-left text-xs">
+            <div class="bg-royal-950/70 p-2.5 rounded-xl border border-gold/25 flex items-center gap-2">
+              <i class="fa-solid fa-award text-gold text-lg"></i>
               <div>
-                <div class="text-xs font-bold text-white">Bihar 24K Gold</div>
-                <div class="text-[10px] text-amber-300">₹1,42,600 / 10g</div>
+                <div class="font-bold text-white text-[11px]">24K Bihar Rate</div>
+                <div class="text-[9px] text-amber-300">₹1,42,600 / 10g</div>
               </div>
             </div>
 
-            <div class="bg-royal-950/70 backdrop-blur-md p-3.5 rounded-xl border border-gold/25 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-slate-300/15 text-slate-200 flex items-center justify-center text-lg">
-                <i class="fa-solid fa-ring"></i>
-              </div>
+            <div class="bg-royal-950/70 p-2.5 rounded-xl border border-gold/25 flex items-center gap-2">
+              <i class="fa-solid fa-ring text-slate-300 text-lg"></i>
               <div>
-                <div class="text-xs font-bold text-white">Pure Silver 999</div>
-                <div class="text-[10px] text-slate-300">Payal, Thali & Coins</div>
+                <div class="font-bold text-white text-[11px]">Pure Silver 999</div>
+                <div class="text-[9px] text-slate-300">Payal, Thali, Coin</div>
               </div>
             </div>
 
-            <div class="bg-royal-950/70 backdrop-blur-md p-3.5 rounded-xl border border-gold/25 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg">
-                <i class="fa-solid fa-calendar-check"></i>
-              </div>
+            <div class="bg-royal-950/70 p-2.5 rounded-xl border border-gold/25 flex items-center gap-2">
+              <i class="fa-solid fa-calendar-check text-emerald-400 text-lg"></i>
               <div>
-                <div class="text-xs font-bold text-white">Committed Delivery</div>
-                <div class="text-[10px] text-emerald-400">Guaranteed Date & Time</div>
+                <div class="font-bold text-white text-[11px]">Guaranteed Date</div>
+                <div class="text-[9px] text-emerald-400">On-Time Delivery</div>
               </div>
             </div>
 
-            <div class="bg-royal-950/70 backdrop-blur-md p-3.5 rounded-xl border border-gold/25 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center text-lg">
-                <i class="fa-solid fa-user-shield"></i>
-              </div>
+            <div class="bg-royal-950/70 p-2.5 rounded-xl border border-gold/25 flex items-center gap-2">
+              <i class="fa-solid fa-phone text-gold text-lg"></i>
               <div>
-                <div class="text-xs font-bold text-white">Owner Kanhaiya</div>
-                <div class="text-[10px] text-slate-400">Call: 6202805193</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- GOLD & SILVER SELECTION SWITCHER BANNER -->
-      <section class="max-w-7xl mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- Gold Banner Card -->
-          <div onclick="filterByMetal('Gold')" class="cursor-pointer group bg-gradient-to-r from-amber-950 via-royal-900 to-amber-900/60 p-6 rounded-3xl border border-gold/40 hover:border-gold transition shadow-xl relative overflow-hidden">
-            <div class="flex items-center justify-between">
-              <div>
-                <span class="text-xs uppercase font-bold text-amber-300">100% BIS Hallmarked</span>
-                <h3 class="text-2xl font-serif-luxury font-bold text-white mt-1">All Gold Ornaments</h3>
-                <p class="text-xs text-slate-300 mt-1">24K Bullion (₹1,42,600), 22K Bridal Haar, Nizam Chokers, Bangles</p>
-                <div class="mt-4 inline-flex items-center gap-2 text-gold font-bold text-xs group-hover:translate-x-1 transition">
-                  <span>Browse Gold Catalogue</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-              <div class="w-20 h-20 rounded-2xl bg-gold/20 flex items-center justify-center text-gold text-4xl border border-gold/40">
-                <i class="fa-solid fa-crown"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- Silver Banner Card -->
-          <div onclick="filterByMetal('Silver')" class="cursor-pointer group bg-gradient-to-r from-slate-900 via-royal-900 to-slate-800/80 p-6 rounded-3xl border border-slate-500/40 hover:border-white transition shadow-xl relative overflow-hidden">
-            <div class="flex items-center justify-between">
-              <div>
-                <span class="text-xs uppercase font-bold text-slate-300">999 & 925 Pure Chandi</span>
-                <h3 class="text-2xl font-serif-luxury font-bold text-white mt-1">All Silver Ornaments</h3>
-                <p class="text-xs text-slate-300 mt-1">Dulhan Payal, Auspicious Pooja Thali Sets, Men's Kada, Silver Coins</p>
-                <div class="mt-4 inline-flex items-center gap-2 text-slate-200 font-bold text-xs group-hover:translate-x-1 transition">
-                  <span>Browse Silver Catalogue</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-              <div class="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center text-white text-4xl border border-white/20">
-                <i class="fa-solid fa-ring"></i>
+                <div class="font-bold text-white text-[11px]">Call Kanhaiya</div>
+                <div class="text-[9px] text-slate-400">6202805193</div>
               </div>
             </div>
           </div>
@@ -492,136 +398,95 @@
       </section>
 
       <!-- PRODUCTS CATALOG SECTION (ALL GOLD & SILVER ITEMS) -->
-      <section id="productsSection" class="max-w-7xl mx-auto px-4 py-8">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <section id="productsSection" class="max-w-7xl mx-auto px-3 sm:px-6 py-6">
+        <div class="flex items-center justify-between mb-4">
           <div>
-            <h3 class="text-2xl sm:text-3xl font-serif-luxury font-bold text-white flex items-center gap-2">
-              <span id="catalogMainTitle">Gold & Silver Jewellery Menu</span>
+            <h3 class="text-lg sm:text-2xl font-serif-luxury font-bold text-white flex items-center gap-2">
+              <span id="catalogMainTitle">All Jewellery Menu</span>
             </h3>
-            <p class="text-xs text-slate-400 mt-1">
-              Select any design to book with your chosen delivery date and time slot
+            <p class="text-[11px] text-slate-400">
+              Tap any item to view all photos & book your delivery date
             </p>
           </div>
-
-          <!-- Metal and Category Tabs -->
-          <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
-            <button onclick="filterCategory('All')" class="cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold bg-gold text-royal-950 transition">
-              All Items
-            </button>
-            <button onclick="filterByMetal('Gold')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-royal-800 text-amber-300 border border-gold/30 hover:text-white transition">
-              Gold (24K/22K)
-            </button>
-            <button onclick="filterByMetal('Silver')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-royal-800 text-slate-200 border border-slate-600 hover:text-white transition">
-              Silver (Chandi)
-            </button>
-            <button onclick="filterCategory('Necklaces')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
-              Necklaces
-            </button>
-            <button onclick="filterCategory('Silver')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
-              Payal & Thali
-            </button>
-            <button onclick="filterCategory('Coins')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-gold/20 transition">
-              Coins & Bars
-            </button>
-          </div>
+          <button onclick="openOwnerStudioModal()" class="text-xs bg-royal-800 text-gold-300 border border-gold/30 px-2.5 py-1.5 rounded-lg font-bold flex items-center gap-1">
+            <i class="fa-solid fa-plus text-[10px]"></i> Add Item
+          </button>
         </div>
 
-        <!-- Dynamic Product Cards Grid -->
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        <!-- 2-Column Grid on Mobile, 4-Column on Desktop -->
+        <div id="productsGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6"></div>
       </section>
 
     </div>
 
-    <!-- VIEW 2: FLIPKART-STYLE USER PROFILE DASHBOARD (`#profileView`) -->
-    <div id="profileView" class="view-panel hidden max-w-7xl mx-auto px-4 py-8">
-      <div class="flex items-center gap-2 text-xs text-slate-400 mb-6">
-        <button onclick="switchView('home')" class="hover:text-gold transition">Home</button>
-        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-        <span class="text-gold-300 font-medium">My Account</span>
-        <i class="fa-solid fa-chevron-right text-[10px]"></i>
-        <span id="profileBreadcrumbTab" class="text-white">Profile Information</span>
+    <!-- VIEW 2: FLIPKART-STYLE USER PROFILE DASHBOARD -->
+    <div id="profileView" class="view-panel hidden max-w-7xl mx-auto px-3 sm:px-6 py-6">
+      <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+        <button onclick="switchView('home')" class="hover:text-gold">Home</button>
+        <i class="fa-solid fa-chevron-right text-[9px]"></i>
+        <span class="text-gold font-medium">My Account</span>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
         
-        <!-- Left Sidebar -->
-        <aside class="lg:col-span-4 space-y-4">
-          <div class="bg-royal-800/90 rounded-xl p-4 border border-gold/20 flex items-center gap-4 shadow-lg">
-            <div id="userAvatarSidebar" class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-600 to-gold text-royal-950 font-bold text-xl flex items-center justify-center border-2 border-gold shadow">
+        <!-- Left Sidebar / Mobile Menu Cards -->
+        <aside class="lg:col-span-4 space-y-3">
+          <div class="bg-royal-800/90 rounded-xl p-3.5 border border-gold/20 flex items-center gap-3">
+            <div id="userAvatarSidebar" class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 to-gold text-royal-950 font-bold text-lg flex items-center justify-center border-2 border-gold shadow">
               KS
             </div>
             <div>
-              <div class="text-xs text-slate-400 uppercase tracking-wider">Hello,</div>
-              <div id="userNameSidebar" class="text-base font-bold text-white">Kanhaiya Sharma</div>
+              <div class="text-[10px] text-slate-400 uppercase">Hello,</div>
+              <div id="userNameSidebar" class="text-sm font-bold text-white">Kanhaiya Sharma</div>
               <div id="userPhoneSidebar" class="text-xs text-gold-400 font-medium">+91 6202805193</div>
             </div>
           </div>
 
-          <div class="bg-royal-800/90 rounded-xl border border-gold/20 overflow-hidden shadow-lg">
-            <div class="border-b border-white/5">
-              <button onclick="switchProfileTab('orders')" id="tabBtn-orders" class="fk-sidebar-item w-full flex items-center justify-between px-5 py-4 text-sm text-slate-200">
-                <div class="flex items-center gap-3">
-                  <i class="fa-solid fa-box-open text-gold w-5"></i>
-                  <span class="font-bold tracking-wide">MY ORDERS & DELIVERY</span>
-                </div>
-                <span id="orderCountBadge" class="text-xs bg-gold/20 text-gold font-bold px-2 py-0.5 rounded-full">1</span>
-              </button>
-            </div>
-
-            <div class="border-b border-white/5 py-2">
-              <div class="px-5 py-2 text-[11px] font-bold tracking-wider text-slate-400 uppercase">ACCOUNT SETTINGS</div>
-              <button onclick="switchProfileTab('info')" id="tabBtn-info" class="fk-sidebar-item active w-full flex items-center justify-between px-7 py-2.5 text-xs text-slate-300">
-                <span>Profile Information</span>
-                <i class="fa-solid fa-chevron-right text-[10px]"></i>
-              </button>
-              <button onclick="switchProfileTab('addresses')" id="tabBtn-addresses" class="fk-sidebar-item w-full flex items-center justify-between px-7 py-2.5 text-xs text-slate-300">
-                <span>Manage Addresses</span>
-                <i class="fa-solid fa-chevron-right text-[10px]"></i>
-              </button>
-              <button onclick="openOwnerStudioModal()" class="fk-sidebar-item w-full flex items-center justify-between px-7 py-2.5 text-xs text-amber-300 font-bold">
-                <span>👑 Admin: Product & Price Studio</span>
-                <i class="fa-solid fa-sliders text-[10px]"></i>
-              </button>
-            </div>
-
-            <div class="p-4 bg-royal-950/60">
-              <button onclick="handleLogout()" class="w-full py-2 px-4 rounded-lg bg-red-950/40 hover:bg-red-900/60 text-red-300 border border-red-800/40 text-xs font-semibold transition">
-                Log Out of Account
-              </button>
-            </div>
+          <div class="bg-royal-800/90 rounded-xl border border-gold/20 overflow-hidden text-xs">
+            <button onclick="switchProfileTab('orders')" id="tabBtn-orders" class="fk-sidebar-item w-full flex items-center justify-between px-4 py-3 text-slate-200 border-b border-white/5">
+              <span class="font-bold flex items-center gap-2"><i class="fa-solid fa-box-open text-gold"></i> MY ORDERS & DELIVERY</span>
+              <span id="orderCountBadge" class="bg-gold/20 text-gold font-bold px-2 py-0.5 rounded-full text-[10px]">1</span>
+            </button>
+            <button onclick="switchProfileTab('info')" id="tabBtn-info" class="fk-sidebar-item active w-full flex items-center justify-between px-4 py-3 text-slate-300 border-b border-white/5">
+              <span>Profile Information</span>
+              <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            </button>
+            <button onclick="switchProfileTab('addresses')" id="tabBtn-addresses" class="fk-sidebar-item w-full flex items-center justify-between px-4 py-3 text-slate-300 border-b border-white/5">
+              <span>Manage Addresses</span>
+              <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            </button>
+            <button onclick="openOwnerStudioModal()" class="fk-sidebar-item w-full flex items-center justify-between px-4 py-3 text-amber-300 font-bold border-b border-white/5">
+              <span>👑 Admin Product Studio</span>
+              <i class="fa-solid fa-sliders text-[10px]"></i>
+            </button>
+            <button onclick="handleLogout()" class="w-full text-left px-4 py-3 text-red-400">
+              <i class="fa-solid fa-power-off mr-1.5"></i> Log Out
+            </button>
           </div>
         </aside>
 
         <!-- Right Content Area -->
-        <div class="lg:col-span-8 bg-royal-800/90 rounded-xl border border-gold/20 p-6 sm:p-8 shadow-xl min-h-[500px]">
+        <div class="lg:col-span-8 bg-royal-800/90 rounded-xl border border-gold/20 p-4 sm:p-6 min-h-[400px]">
           <div id="tabContent-info" class="fk-tab-content">
-            <h3 class="text-lg font-bold text-white mb-6">Personal Information</h3>
-            <form id="profileForm" onsubmit="saveProfileInfo(event)" class="space-y-4">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input type="text" id="profName" disabled class="bg-royal-950/60 border border-gold/20 rounded p-2.5 text-sm text-white">
-                <input type="tel" id="profPhone" disabled class="bg-royal-950/60 border border-gold/20 rounded p-2.5 text-sm text-white">
-              </div>
-              <input type="email" id="profEmail" disabled class="w-full bg-royal-950/60 border border-gold/20 rounded p-2.5 text-sm text-white">
+            <h3 class="text-base font-bold text-white mb-4">Personal Information</h3>
+            <form id="profileForm" onsubmit="saveProfileInfo(event)" class="space-y-3 text-xs">
+              <input type="text" id="profName" disabled class="w-full bg-royal-950/60 border border-gold/20 rounded p-2 text-white">
+              <input type="tel" id="profPhone" disabled class="w-full bg-royal-950/60 border border-gold/20 rounded p-2 text-white">
+              <input type="email" id="profEmail" disabled class="w-full bg-royal-950/60 border border-gold/20 rounded p-2 text-white">
             </form>
           </div>
 
           <div id="tabContent-addresses" class="fk-tab-content hidden">
-            <div class="flex items-center justify-between pb-4 border-b border-gold/15 mb-6">
-              <h3 class="text-lg font-bold text-white">Manage Addresses</h3>
-              <button onclick="toggleAddressForm(true)" class="px-4 py-2 bg-royal-900 border border-gold/40 text-gold-300 rounded-lg text-xs font-bold">+ ADD ADDRESS</button>
+            <div class="flex items-center justify-between pb-3 border-b border-gold/15 mb-4">
+              <h3 class="text-base font-bold text-white">Manage Addresses</h3>
+              <button onclick="toggleAddressForm(true)" class="px-3 py-1.5 bg-royal-900 border border-gold/30 text-gold-300 rounded text-xs font-bold">+ ADD ADDRESS</button>
             </div>
-            <div id="addressesListContainer" class="space-y-4"></div>
+            <div id="addressesListContainer" class="space-y-3"></div>
           </div>
 
-          <!-- Orders with Promised Delivery Date & Time -->
           <div id="tabContent-orders" class="fk-tab-content hidden">
-            <div class="flex items-center justify-between pb-4 border-b border-gold/15 mb-6">
-              <div>
-                <h3 class="text-lg font-bold text-white">My Orders & Delivery Commitment</h3>
-                <p class="text-xs text-slate-400">View ordered items with promised delivery date & time slot</p>
-              </div>
-            </div>
-            <div id="ordersListContainer" class="space-y-6"></div>
+            <h3 class="text-base font-bold text-white mb-3">My Orders & Delivery Commitment</h3>
+            <div id="ordersListContainer" class="space-y-4"></div>
           </div>
         </div>
 
@@ -629,69 +494,62 @@
     </div>
 
     <!-- VIEW 3: MULTI-STEP CHECKOUT VIEW WITH PROMISED DELIVERY DATE & TIME -->
-    <div id="checkoutView" class="view-panel hidden max-w-7xl mx-auto px-4 py-8">
+    <div id="checkoutView" class="view-panel hidden max-w-7xl mx-auto px-3 sm:px-6 py-6">
       
       <!-- Stepper -->
-      <div class="max-w-3xl mx-auto mb-8">
-        <div class="flex items-center justify-between relative">
-          <div class="w-full absolute top-1/2 -translate-y-1/2 h-1 bg-royal-800 -z-0"></div>
+      <div class="max-w-2xl mx-auto mb-6">
+        <div class="flex items-center justify-between relative text-xs">
+          <div class="w-full absolute top-1/2 -translate-y-1/2 h-0.5 bg-royal-800 -z-0"></div>
           <div class="flex flex-col items-center relative z-10">
-            <div id="stepDot-1" class="w-9 h-9 rounded-full bg-gold text-royal-950 font-bold flex items-center justify-center text-sm shadow">1</div>
-            <span class="text-[11px] font-semibold text-gold mt-1.5">Address</span>
+            <div id="stepDot-1" class="w-8 h-8 rounded-full bg-gold text-royal-950 font-bold flex items-center justify-center text-xs">1</div>
+            <span class="text-[10px] text-gold mt-1">Address</span>
           </div>
           <div class="flex flex-col items-center relative z-10">
-            <div id="stepDot-2" class="w-9 h-9 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-sm shadow">2</div>
-            <span class="text-[11px] font-semibold text-slate-400 mt-1.5">Delivery Date & Time</span>
+            <div id="stepDot-2" class="w-8 h-8 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-xs">2</div>
+            <span class="text-[10px] text-slate-400 mt-1">Delivery Date</span>
           </div>
           <div class="flex flex-col items-center relative z-10">
-            <div id="stepDot-3" class="w-9 h-9 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-sm shadow">3</div>
-            <span class="text-[11px] font-semibold text-slate-400 mt-1.5">Payment</span>
+            <div id="stepDot-3" class="w-8 h-8 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-xs">3</div>
+            <span class="text-[10px] text-slate-400 mt-1">Payment</span>
           </div>
           <div class="flex flex-col items-center relative z-10">
-            <div id="stepDot-4" class="w-9 h-9 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-sm shadow">4</div>
-            <span class="text-[11px] font-semibold text-slate-400 mt-1.5">Confirmation</span>
+            <div id="stepDot-4" class="w-8 h-8 rounded-full bg-royal-800 text-slate-400 border border-gold/30 font-bold flex items-center justify-center text-xs">4</div>
+            <span class="text-[10px] text-slate-400 mt-1">Done</span>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        <div class="lg:col-span-8 bg-royal-800/90 rounded-2xl border border-gold/20 p-6 sm:p-8 shadow-xl">
+        <div class="lg:col-span-8 bg-royal-800/90 rounded-2xl border border-gold/20 p-4 sm:p-6 shadow-xl">
           
           <!-- STEP 1: ADDRESS -->
           <div id="checkoutStep-1" class="checkout-step-panel">
-            <h3 class="text-lg font-bold text-white mb-2">Select Delivery Address</h3>
-            <div id="checkoutAddressChoices" class="space-y-3 mb-6"></div>
-            <button onclick="goToCheckoutStep(2)" class="px-8 py-3 bg-gold hover:bg-amber-400 text-royal-950 font-bold rounded-xl text-sm transition">
-              CONTINUE TO DELIVERY DATE & TIME COMMITMENT
+            <h3 class="text-base font-bold text-white mb-3">1. Select Delivery Address</h3>
+            <div id="checkoutAddressChoices" class="space-y-2.5 mb-5"></div>
+            <button onclick="goToCheckoutStep(2)" class="w-full sm:w-auto px-6 py-3 bg-gold hover:bg-amber-400 text-royal-950 font-bold rounded-xl text-xs transition">
+              CONTINUE TO DELIVERY DATE
             </button>
           </div>
 
-          <!-- STEP 2: PROMISED DELIVERY DATE & TIME SLOT COMMITMENT -->
+          <!-- STEP 2: PROMISED DELIVERY DATE & TIME -->
           <div id="checkoutStep-2" class="checkout-step-panel hidden">
-            <div class="flex items-center gap-3 pb-3 border-b border-gold/15 mb-4">
-              <i class="fa-solid fa-calendar-check text-gold text-2xl"></i>
-              <div>
-                <h3 class="text-lg font-bold text-white">Promised Delivery Date & Time Commitment</h3>
-                <p class="text-xs text-slate-400">Choose the exact date and time slot you want Ambe Jewellery to deliver</p>
-              </div>
-            </div>
+            <h3 class="text-base font-bold text-white mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-calendar-check text-gold"></i>
+              <span>2. Choose Promised Delivery Date & Time</span>
+            </h3>
+            <p class="text-xs text-slate-400 mb-4">We guarantee delivery on your selected date and time slot.</p>
 
-            <!-- Delivery Date & Slot Selector Box -->
-            <div class="bg-royal-950/80 p-5 rounded-2xl border border-gold/30 mb-6 space-y-4">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-royal-950/80 p-4 rounded-xl border border-gold/30 mb-5 space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label class="block text-xs font-bold text-gold-300 mb-1.5">
-                    <i class="fa-regular fa-calendar mr-1"></i> Choose Delivery Date *
-                  </label>
+                  <label class="block text-xs font-bold text-gold-300 mb-1">Select Delivery Date *</label>
                   <input type="date" id="orderDeliveryDate" required 
-                         class="w-full bg-royal-900 border border-gold/30 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                         class="w-full bg-royal-900 border border-gold/30 rounded-lg p-2.5 text-xs text-white">
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-gold-300 mb-1.5">
-                    <i class="fa-regular fa-clock mr-1"></i> Preferred Time Slot *
-                  </label>
-                  <select id="orderDeliveryTimeSlot" class="w-full bg-royal-900 border border-gold/30 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                  <label class="block text-xs font-bold text-gold-300 mb-1">Preferred Time Slot *</label>
+                  <select id="orderDeliveryTimeSlot" class="w-full bg-royal-900 border border-gold/30 rounded-lg p-2.5 text-xs text-white">
                     <option value="Morning 10:00 AM - 01:00 PM">Morning (10:00 AM - 01:00 PM)</option>
                     <option value="Afternoon 02:00 PM - 05:00 PM" selected>Afternoon (02:00 PM - 05:00 PM)</option>
                     <option value="Evening 05:00 PM - 08:00 PM">Evening (05:00 PM - 08:00 PM)</option>
@@ -699,115 +557,99 @@
                 </div>
               </div>
 
-              <div class="p-3 bg-royal-900/60 rounded-xl border border-emerald-500/30 flex items-center gap-3 text-xs">
-                <i class="fa-solid fa-shield-halved text-emerald-400 text-lg"></i>
-                <div>
-                  <span class="font-bold text-white">Kanhaiya Sharma's On-Time Assurance:</span>
-                  <p class="text-slate-300">We guarantee delivery on your chosen date with tamperproof armored courier and full insurance.</p>
-                </div>
+              <div class="p-2.5 bg-royal-900/60 rounded-lg border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-base"></i>
+                <span>100% Insured Delivery with Hallmark Verification on Arrival</span>
               </div>
             </div>
 
-            <!-- Items Review -->
-            <h4 class="text-xs uppercase font-bold text-slate-400 mb-3">Order Items Review:</h4>
-            <div id="checkoutItemsList" class="space-y-3 mb-6"></div>
+            <div id="checkoutItemsList" class="space-y-2 mb-5"></div>
 
-            <div class="flex items-center gap-4 pt-4 border-t border-gold/15">
-              <button onclick="goToCheckoutStep(1)" class="px-5 py-2.5 bg-royal-900 text-slate-300 rounded-xl text-xs font-semibold">Back</button>
-              <button onclick="goToCheckoutStep(3)" class="px-8 py-2.5 bg-gold hover:bg-amber-400 text-royal-950 font-bold rounded-xl text-sm transition">
-                CONFIRM DATE & PROCEED TO PAYMENT
+            <div class="flex items-center gap-3 pt-3 border-t border-gold/15">
+              <button onclick="goToCheckoutStep(1)" class="px-4 py-2.5 bg-royal-900 text-slate-300 rounded-xl text-xs">Back</button>
+              <button onclick="goToCheckoutStep(3)" class="flex-1 py-2.5 bg-gold hover:bg-amber-400 text-royal-950 font-bold rounded-xl text-xs transition">
+                CONFIRM DATE & GO TO PAYMENT
               </button>
             </div>
           </div>
 
           <!-- STEP 3: PAYMENT -->
           <div id="checkoutStep-3" class="checkout-step-panel hidden">
-            <h3 class="text-lg font-bold text-white mb-2">Choose Payment Option</h3>
+            <h3 class="text-base font-bold text-white mb-3">3. Choose Payment Method</h3>
 
-            <div class="space-y-4 mb-8">
-              <!-- UPI QR Code for Kanhaiya Sharma -->
-              <div class="bg-royal-950/70 border border-gold/30 rounded-xl p-5 hover:border-gold transition">
+            <div class="space-y-3 mb-6">
+              <div class="bg-royal-950/70 border border-gold/30 rounded-xl p-3.5">
                 <label class="flex items-center justify-between cursor-pointer" onclick="selectPaymentOption('UPI')">
-                  <div class="flex items-center gap-3">
+                  <div class="flex items-center gap-2.5">
                     <input type="radio" name="paymentOption" value="UPI" checked class="text-gold">
-                    <div>
-                      <div class="text-sm font-bold text-white">UPI / Dynamic QR Code</div>
-                      <div class="text-xs text-slate-400">Google Pay, PhonePe, Paytm (VPA: 6202805193@paytm)</div>
-                    </div>
+                    <span class="text-xs font-bold text-white">UPI / Dynamic QR Code</span>
                   </div>
-                  <i class="fa-solid fa-qrcode text-gold text-xl"></i>
+                  <i class="fa-solid fa-qrcode text-gold"></i>
                 </label>
 
-                <div id="subpanel-UPI" class="mt-4 pt-4 border-t border-gold/15 flex flex-col sm:flex-row items-center gap-5">
-                  <div class="w-32 h-32 bg-white p-2 rounded-xl flex items-center justify-center shadow">
+                <div id="subpanel-UPI" class="mt-3 pt-3 border-t border-gold/15 flex flex-col sm:flex-row items-center gap-3">
+                  <div class="w-28 h-28 bg-white p-2 rounded-xl flex items-center justify-center">
                     <img id="dynamicUpiQr" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=6202805193@paytm&pn=Ambe%20Jewellery%20Shop%20Kanhaiya%20Sharma" alt="UPI QR" class="w-full h-full object-contain">
                   </div>
-                  <div class="text-xs space-y-1">
-                    <div class="font-bold text-gold-300">Scan & Pay to Ambe Jewellery</div>
+                  <div class="text-xs space-y-0.5 text-center sm:text-left">
                     <div>Payee: <strong class="text-white">Kanhaiya Sharma</strong></div>
-                    <div>UPI ID: <strong class="text-emerald-400">6202805193@paytm</strong></div>
+                    <div>UPI: <strong class="text-emerald-400">6202805193@paytm</strong></div>
                     <div>Phone: <strong class="text-white">6202805193</strong></div>
                   </div>
                 </div>
               </div>
 
-              <!-- COD -->
-              <div class="bg-royal-950/70 border border-gold/30 rounded-xl p-5 hover:border-gold transition">
+              <div class="bg-royal-950/70 border border-gold/30 rounded-xl p-3.5">
                 <label class="flex items-center justify-between cursor-pointer" onclick="selectPaymentOption('COD')">
-                  <div class="flex items-center gap-3">
+                  <div class="flex items-center gap-2.5">
                     <input type="radio" name="paymentOption" value="COD" class="text-gold">
-                    <div>
-                      <div class="text-sm font-bold text-white">Cash on Delivery / Showroom Collection</div>
-                      <div class="text-xs text-slate-400">Pay on your promised delivery date after inspecting Hallmark</div>
-                    </div>
+                    <span class="text-xs font-bold text-white">Cash on Delivery / Pay on Delivery Date</span>
                   </div>
                   <i class="fa-solid fa-hand-holding-dollar text-slate-400"></i>
                 </label>
               </div>
             </div>
 
-            <div class="flex items-center gap-4">
-              <button onclick="goToCheckoutStep(2)" class="px-5 py-2.5 bg-royal-900 text-slate-300 rounded-xl text-xs font-semibold">Back</button>
-              <button onclick="executeFinalOrder()" id="btnConfirmPay" class="flex-1 py-3.5 bg-gradient-to-r from-amber-500 via-gold to-amber-600 hover:brightness-110 text-royal-950 font-black rounded-xl text-sm transition uppercase shadow-lg shadow-gold/25">
+            <div class="flex items-center gap-3">
+              <button onclick="goToCheckoutStep(2)" class="px-4 py-2.5 bg-royal-900 text-slate-300 rounded-xl text-xs">Back</button>
+              <button onclick="executeFinalOrder()" id="btnConfirmPay" class="flex-1 py-3 bg-gradient-to-r from-amber-500 via-gold to-amber-600 text-royal-950 font-black rounded-xl text-xs uppercase shadow">
                 <span id="payButtonText">CONFIRM & BOOK DELIVERY</span>
               </button>
             </div>
           </div>
 
-          <!-- STEP 4: ORDER CONFIRMATION WITH PROMISED DELIVERY DATE -->
-          <div id="checkoutStep-4" class="checkout-step-panel hidden text-center py-8">
-            <div class="w-20 h-20 rounded-full bg-emerald-900/60 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto text-4xl mb-4 shadow-xl">
+          <!-- STEP 4: ORDER CONFIRMATION -->
+          <div id="checkoutStep-4" class="checkout-step-panel hidden text-center py-6">
+            <div class="w-16 h-16 rounded-full bg-emerald-900/60 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto text-3xl mb-3 shadow">
               <i class="fa-solid fa-check"></i>
             </div>
 
-            <h3 class="text-2xl sm:text-3xl font-serif-luxury font-bold text-white mb-2">Order & Delivery Date Booked!</h3>
-            <p class="text-sm text-slate-300 max-w-md mx-auto mb-4">
-              Aapka order Kanhaiya Sharma (Ambe Jewellery) ke pas darz ho chuka hai.
+            <h3 class="text-xl sm:text-2xl font-serif-luxury font-bold text-white mb-1">Delivery Date & Order Booked!</h3>
+            <p class="text-xs text-slate-300 max-w-md mx-auto mb-4">
+              Kanhaiya Sharma (Ambe Jewellery) ko aapka order prapt ho gaya hai.
             </p>
 
-            <div class="bg-royal-950/80 p-5 rounded-2xl border border-gold/30 max-w-md mx-auto mb-6 text-left text-xs space-y-2.5">
-              <div class="flex justify-between pb-2 border-b border-gold/15">
+            <div class="bg-royal-950/80 p-4 rounded-xl border border-gold/30 max-w-md mx-auto mb-5 text-left text-xs space-y-2">
+              <div class="flex justify-between pb-1.5 border-b border-gold/15">
                 <span class="text-slate-400">Order ID:</span>
-                <strong id="confirmedOrderId" class="text-gold font-mono text-sm">OD-AMBE-99214</strong>
+                <strong id="confirmedOrderId" class="text-gold font-mono">OD-AMBE-99214</strong>
               </div>
-              <div class="p-2.5 bg-royal-900/80 rounded-xl border border-gold/20 space-y-1">
-                <div class="text-amber-300 font-bold flex items-center gap-1.5">
-                  <i class="fa-solid fa-calendar-check"></i> Promised Delivery Commitment:
-                </div>
-                <div class="text-white text-sm font-black" id="confirmedDeliveryDate">28 Oct 2026 (Evening 04:00 PM)</div>
+              <div class="p-2 bg-royal-900 rounded-lg border border-gold/20">
+                <div class="text-amber-300 font-bold text-[10px] uppercase">📅 Committed Delivery Date & Time:</div>
+                <div class="text-white font-bold text-xs" id="confirmedDeliveryDate">28 Oct 2026 (Evening 04:00 PM)</div>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate-400">Showroom Proprietor:</span>
-                <span class="text-white font-medium">Kanhaiya Sharma (+91 6202805193)</span>
+                <span class="text-slate-400">Owner Helpline:</span>
+                <span class="text-white">Kanhaiya Sharma (+91 6202805193)</span>
               </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-              <a id="btnWhatsAppSync" href="#" target="_blank" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Send Delivery Date to Kanhaiya on WhatsApp</span>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-md mx-auto">
+              <a id="btnWhatsAppSync" href="#" target="_blank" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Send to Kanhaiya on WhatsApp</span>
               </a>
-              <button onclick="viewPlacedOrderInFlipkart()" class="w-full py-3 bg-royal-900 hover:bg-royal-700 text-gold-300 border border-gold/30 rounded-xl text-xs font-bold">
+              <button onclick="viewPlacedOrderInFlipkart()" class="w-full py-2.5 bg-royal-900 text-gold-300 border border-gold/30 rounded-xl text-xs font-bold">
                 Track in Flipkart Orders
               </button>
             </div>
@@ -815,12 +657,12 @@
 
         </div>
 
-        <!-- Right Side Price Breakdown -->
-        <div class="lg:col-span-4 bg-royal-800/90 rounded-2xl border border-gold/20 p-6 shadow-xl sticky top-28">
-          <h4 class="text-xs uppercase tracking-wider font-bold text-slate-400 pb-3 border-b border-gold/15 mb-4">PRICE DETAILS</h4>
-          <div class="space-y-3 text-xs mb-6">
+        <!-- Right Side: Order Price Breakdown Sidebar -->
+        <div class="lg:col-span-4 bg-royal-800/90 rounded-2xl border border-gold/20 p-4 sm:p-5 shadow-xl">
+          <h4 class="text-xs uppercase font-bold text-slate-400 pb-2 border-b border-gold/15 mb-3">PRICE DETAILS</h4>
+          <div class="space-y-2 text-xs mb-4">
             <div class="flex justify-between text-slate-300">
-              <span>Price (<span id="chkTotalItems">1</span> items)</span>
+              <span>Items (<span id="chkTotalItems">1</span>)</span>
               <span id="chkSubtotal" class="font-semibold text-white">₹0</span>
             </div>
             <div class="flex justify-between text-slate-300">
@@ -828,16 +670,16 @@
               <span id="chkMakingCharges" class="font-semibold text-white">Included</span>
             </div>
             <div class="flex justify-between text-slate-300">
-              <span>Jewellery GST (3%)</span>
+              <span>GST (3%)</span>
               <span id="chkGst" class="font-semibold text-white">₹0</span>
             </div>
             <div class="flex justify-between text-slate-300">
-              <span>Promised Date Delivery</span>
-              <span class="text-emerald-400 font-bold uppercase">FREE & INSURED</span>
+              <span>Delivery Insurance</span>
+              <span class="text-emerald-400 font-bold">FREE & INSURED</span>
             </div>
-            <div class="pt-4 border-t border-gold/20 flex justify-between items-center text-sm">
+            <div class="pt-3 border-t border-gold/20 flex justify-between items-center text-sm">
               <span class="font-bold text-white">Total Amount</span>
-              <span id="chkGrandTotal" class="font-extrabold text-gold text-lg">₹0</span>
+              <span id="chkGrandTotal" class="font-extrabold text-gold text-base sm:text-lg">₹0</span>
             </div>
           </div>
         </div>
@@ -848,167 +690,217 @@
 
   </main>
 
+  <!-- 5. MOBILE BOTTOM NAVIGATION BAR (Flipkart / App Style) -->
+  <nav class="mobile-bottom-nav">
+    <button onclick="switchView('home')" class="flex flex-col items-center justify-center text-gold py-1">
+      <i class="fa-solid fa-house text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Home</span>
+    </button>
+    
+    <button onclick="filterByMetal('Gold')" class="flex flex-col items-center justify-center text-amber-300 py-1">
+      <i class="fa-solid fa-coins text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Gold</span>
+    </button>
+
+    <button onclick="filterByMetal('Silver')" class="flex flex-col items-center justify-center text-slate-300 py-1">
+      <i class="fa-solid fa-ring text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Silver</span>
+    </button>
+
+    <button onclick="toggleSideRates(true)" class="flex flex-col items-center justify-center text-emerald-400 py-1">
+      <i class="fa-solid fa-chart-line text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Rates</span>
+    </button>
+
+    <button onclick="toggleLiveChat(true)" class="flex flex-col items-center justify-center text-emerald-300 py-1 relative">
+      <i class="fa-solid fa-comments text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Chat</span>
+      <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-green absolute top-0.5 right-1"></span>
+    </button>
+
+    <button onclick="toggleCartDrawer(true)" class="flex flex-col items-center justify-center text-gold py-1 relative">
+      <i class="fa-solid fa-bag-shopping text-base"></i>
+      <span class="text-[10px] font-semibold mt-0.5">Cart</span>
+    </button>
+  </nav>
+
   <!-- CART SLIDE-OVER DRAWER -->
   <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 bg-black/70 z-50"></div>
   <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-royal-950 border-l border-gold/30 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
-    <div class="p-5 border-b border-gold/20 flex items-center justify-between bg-royal-900/60">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-bag-shopping text-gold text-xl"></i>
+    <div class="p-4 border-b border-gold/20 flex items-center justify-between bg-royal-900/60">
+      <div class="flex items-center gap-2.5">
+        <i class="fa-solid fa-bag-shopping text-gold text-lg"></i>
         <div>
-          <h3 class="text-base font-bold text-white font-serif-luxury">Jewellery Cart</h3>
-          <p class="text-[11px] text-slate-400">Ambe Jewellery Shop • Kanhaiya Sharma</p>
+          <h3 class="text-sm font-bold text-white font-serif-luxury">Jewellery Cart</h3>
+          <p class="text-[10px] text-slate-400">Ambe Jewellery Shop • Kanhaiya Sharma</p>
         </div>
       </div>
-      <button onclick="toggleCartDrawer(false)" class="p-2 text-slate-400 hover:text-white">
+      <button onclick="toggleCartDrawer(false)" class="p-1.5 text-slate-400 hover:text-white">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
     </div>
 
-    <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+    <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
 
-    <div class="p-5 border-t border-gold/20 bg-royal-900/80 space-y-3">
+    <div class="p-4 border-t border-gold/20 bg-royal-900/80 space-y-2.5">
       <div class="flex justify-between items-center text-sm font-bold">
         <span class="text-white">Total:</span>
-        <span id="drawerGrandTotal" class="text-gold text-lg font-black">₹0</span>
+        <span id="drawerGrandTotal" class="text-gold text-base font-black">₹0</span>
       </div>
-      <button onclick="proceedFromCartToCheckout()" class="w-full py-3.5 bg-gradient-to-r from-amber-500 via-gold to-amber-600 hover:brightness-110 text-royal-950 font-bold rounded-xl text-sm transition uppercase">
+      <button onclick="proceedFromCartToCheckout()" class="w-full py-3 bg-gradient-to-r from-amber-500 via-gold to-amber-600 text-royal-950 font-bold rounded-xl text-xs uppercase shadow">
         Select Delivery Date & Checkout
       </button>
     </div>
   </aside>
 
   <!-- AUTH MODAL -->
-  <div id="authModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-    <div class="bg-royal-950 border border-gold/40 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
-      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-lg"></i>
+  <div id="authModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3">
+    <div class="bg-royal-950 border border-gold/40 rounded-2xl max-w-sm w-full p-5 relative shadow-2xl text-xs">
+      <button onclick="closeAuthModal()" class="absolute top-3 right-3 text-slate-400 p-1">
+        <i class="fa-solid fa-xmark text-base"></i>
       </button>
 
-      <div class="text-center mb-6">
-        <h3 class="text-xl font-bold font-serif-luxury text-gold-gradient">Ambe Jewellery Shop</h3>
-        <p class="text-xs text-slate-400">Proprietor: Kanhaiya Sharma (6202805193)</p>
+      <div class="text-center mb-4">
+        <h3 class="text-lg font-bold font-serif-luxury text-gold-gradient">Ambe Jewellery Shop</h3>
+        <p class="text-[10px] text-slate-400">Proprietor: Kanhaiya Sharma (6202805193)</p>
       </div>
 
-      <div class="mb-5 bg-royal-900/80 p-3 rounded-xl border border-gold/25 text-center">
-        <button onclick="demoLogin()" class="w-full py-2 bg-gold/20 hover:bg-gold/30 text-gold text-xs font-bold rounded-lg border border-gold/40 transition">
-          <i class="fa-solid fa-bolt"></i> 1-Click Demo Login (Kanhaiya Sharma)
+      <div class="mb-4 bg-royal-900/80 p-2.5 rounded-xl border border-gold/25 text-center">
+        <button onclick="demoLogin()" class="w-full py-1.5 bg-gold/20 text-gold text-xs font-bold rounded-lg border border-gold/40">
+          <i class="fa-solid fa-bolt mr-1"></i> 1-Click VIP Customer Login
         </button>
       </div>
 
-      <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4 text-xs">
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-3">
         <input type="text" id="loginIdentifier" required placeholder="6202805193 or email" class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white">
         <input type="password" id="loginPassword" required placeholder="Password (password123)" class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white">
-        <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold to-amber-600 text-royal-950 font-bold rounded-xl text-xs uppercase">SIGN IN</button>
+        <button type="submit" class="w-full py-2.5 bg-gradient-to-r from-gold to-amber-600 text-royal-950 font-bold rounded-xl uppercase">SIGN IN</button>
       </form>
     </div>
   </div>
 
-  <!-- MULTI-IMAGE QUICK VIEW MODAL -->
-  <div id="productModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-    <div id="productModalContent" class="bg-royal-950 border border-gold/40 rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[92vh]"></div>
+  <!-- MULTI-IMAGE QUICK VIEW MODAL (Mobile Touch Friendly) -->
+  <div id="productModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-3 backdrop-blur-sm">
+    <div id="productModalContent" class="bg-royal-950 border border-gold/40 rounded-2xl max-w-2xl w-full p-4 sm:p-6 relative shadow-2xl overflow-y-auto max-h-[90vh]"></div>
   </div>
 
-  <!-- ADMIN STUDIO: ADD / EDIT PRODUCT & CUSTOMIZE GOLD/SILVER, CARAT, MAKING CHARGE & DELIVERY -->
-  <div id="productStudioModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 backdrop-blur-md">
-    <div class="bg-royal-950 border border-gold/50 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+  <!-- ADMIN STUDIO MODAL -->
+  <div id="productStudioModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-3 backdrop-blur-md">
+    <div class="bg-royal-950 border border-gold/50 rounded-2xl max-w-xl w-full p-4 sm:p-6 relative shadow-2xl overflow-y-auto max-h-[90vh] text-xs">
       
-      <button onclick="closeProductStudioModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+      <button onclick="closeProductStudioModal()" class="absolute top-3 right-3 text-slate-400 p-1">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
 
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold text-2xl">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-        </div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <i class="fa-solid fa-wand-magic-sparkles text-gold text-xl"></i>
         <div>
-          <h3 id="studioModalTitle" class="text-xl font-bold font-serif-luxury text-white">Admin Studio: Customize Products</h3>
-          <p class="text-xs text-slate-400">Add Gold / Silver items, Carat, Price, Making Charge & Delivery Days</p>
+          <h3 id="studioModalTitle" class="text-base font-bold font-serif-luxury text-white">Admin Studio: Customize</h3>
+          <p class="text-[10px] text-slate-400">Add Gold / Silver items, Carat, Price, Making Charge</p>
         </div>
       </div>
 
-      <form id="productStudioForm" onsubmit="handleSaveProductStudio(event)" class="space-y-4 text-xs">
+      <form id="productStudioForm" onsubmit="handleSaveProductStudio(event)" class="space-y-3">
         <input type="hidden" id="studioProdId">
 
         <div>
           <label class="block text-slate-300 font-semibold mb-1">Item Title / Name *</label>
-          <input type="text" id="studioTitle" required placeholder="e.g. 22K Royal Kundan Gold Haar or 999 Silver Pooja Thali" 
-                 class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
+          <input type="text" id="studioTitle" required placeholder="e.g. 22K Royal Gold Haar or 999 Silver Payal" 
+                 class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2 text-white">
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
           <div>
-            <label class="block text-slate-300 font-semibold mb-1">Metal Type *</label>
-            <select id="studioMetal" onchange="adjustStudioCaratOptions()" class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
+            <label class="block text-slate-300 mb-0.5">Metal *</label>
+            <select id="studioMetal" onchange="adjustStudioCaratOptions()" class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
               <option value="Gold">Gold (Sona)</option>
               <option value="Silver">Silver (Chandi)</option>
             </select>
           </div>
           <div>
-            <label class="block text-slate-300 font-semibold mb-1">Carat / Purity *</label>
-            <select id="studioCarat" class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
-              <option value="24K">24K Pure Gold (999)</option>
-              <option value="22K" selected>22K Standard (916)</option>
-              <option value="18K">18K Gold (750)</option>
-              <option value="999 Silver">999 Pure Silver</option>
-              <option value="925 Silver">925 Sterling Silver</option>
+            <label class="block text-slate-300 mb-0.5">Carat *</label>
+            <select id="studioCarat" class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
+              <option value="24K">24K (999)</option>
+              <option value="22K" selected>22K (916)</option>
+              <option value="18K">18K (750)</option>
+              <option value="999 Silver">999 Silver</option>
+              <option value="925 Silver">925 Silver</option>
             </select>
           </div>
           <div>
-            <label class="block text-slate-300 font-semibold mb-1">Category *</label>
-            <select id="studioCategory" class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
-              <option value="Necklaces">Gold Necklaces / Haar</option>
-              <option value="Silver">Silver (Payal, Thali, Kada)</option>
-              <option value="Coins">Coins & Bullion</option>
+            <label class="block text-slate-300 mb-0.5">Category *</label>
+            <select id="studioCategory" class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
+              <option value="Necklaces">Gold Necklaces</option>
+              <option value="Silver">Silver Items</option>
+              <option value="Coins">Coins & Bars</option>
               <option value="Bridal">Bridal Sets</option>
               <option value="Bangles">Bangles & Kadas</option>
               <option value="Rings">Rings</option>
             </select>
           </div>
           <div>
-            <label class="block text-slate-300 font-semibold mb-1">Weight (Grams) *</label>
-            <input type="number" id="studioWeight" step="0.1" required placeholder="e.g. 50.0" 
-                   class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
+            <label class="block text-slate-300 mb-0.5">Weight (g) *</label>
+            <input type="number" id="studioWeight" step="0.1" required placeholder="50.0" 
+                   class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
           </div>
         </div>
 
-        <!-- Price, Making Charge, Delivery Timeline Customization -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-royal-900/60 p-3.5 rounded-xl border border-gold/20">
+        <div class="grid grid-cols-3 gap-2 bg-royal-900/60 p-2.5 rounded-xl border border-gold/20">
           <div>
-            <label class="block text-gold-300 font-bold mb-1">Selling Price (₹) *</label>
-            <input type="number" id="studioPrice" required placeholder="e.g. 142600" 
-                   class="w-full bg-royal-950 border border-gold/30 rounded-lg p-2 text-white font-bold focus:outline-none focus:border-gold">
+            <label class="block text-gold-300 font-bold mb-0.5">Price (₹) *</label>
+            <input type="number" id="studioPrice" required placeholder="142600" 
+                   class="w-full bg-royal-950 border border-gold/30 rounded p-1.5 text-white font-bold">
           </div>
           <div>
-            <label class="block text-slate-400 mb-1">Making Charges (₹)</label>
-            <input type="text" id="studioMaking" placeholder="e.g. ₹5,500" 
-                   class="w-full bg-royal-950 border border-gold/20 rounded-lg p-2 text-white focus:outline-none focus:border-gold">
+            <label class="block text-slate-400 mb-0.5">Making (₹)</label>
+            <input type="text" id="studioMaking" placeholder="₹3,500" 
+                   class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-white">
           </div>
           <div>
-            <label class="block text-emerald-400 font-bold mb-1">Delivery Time (Days)</label>
+            <label class="block text-emerald-400 font-bold mb-0.5">Delivery (Days)</label>
             <input type="number" id="studioDeliveryDays" value="2" min="1" max="15" 
-                   class="w-full bg-royal-950 border border-gold/20 rounded-lg p-2 text-white focus:outline-none focus:border-gold">
+                   class="w-full bg-royal-950 border border-gold/20 rounded p-1.5 text-white">
           </div>
         </div>
 
-        <div class="space-y-3">
-          <div>
-            <label class="block text-slate-300 font-semibold mb-1">Primary Image URL *</label>
-            <input type="url" id="studioMainImage" required placeholder="https://..." 
-                   class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold">
+        <!-- PRIMARY IMAGE UPLOAD -->
+        <div>
+          <label class="block text-gold-300 font-bold mb-1">📷 Main Photo Upload (Phone / PC Se)</label>
+          <div class="flex items-center gap-3">
+            <label for="studioMainImageFile" class="flex-1 cursor-pointer">
+              <div class="w-full bg-royal-900 border-2 border-dashed border-gold/40 hover:border-gold rounded-xl p-3 text-center text-xs text-slate-300 transition">
+                <i class="fa-solid fa-cloud-arrow-up text-gold text-xl mb-1"></i>
+                <div class="font-semibold text-white">Tap to Upload Main Image</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">JPG, PNG, WEBP – Phone Camera Ya Gallery</div>
+              </div>
+              <input type="file" id="studioMainImageFile" accept="image/*" onchange="previewMainImage(event)" class="hidden">
+            </label>
+            <img id="studioMainImagePreview" src="" alt="Preview" class="hidden w-20 h-20 rounded-xl object-cover border-2 border-gold/40 shadow-lg flex-shrink-0">
           </div>
-          <div>
-            <label class="block text-slate-300 font-semibold mb-1">Different Angle Gallery Images (Comma-separated URLs)</label>
-            <textarea id="studioExtraImages" rows="2" placeholder="https://angle2.jpg, https://angle3.jpg" 
-                      class="w-full bg-royal-900 border border-gold/20 rounded-lg p-2.5 text-white focus:outline-none focus:border-gold"></textarea>
-          </div>
+          <!-- Hidden field to store base64 or existing URL -->
+          <input type="hidden" id="studioMainImage" value="">
         </div>
 
-        <div class="pt-3 border-t border-gold/20 flex items-center justify-between">
-          <button type="button" id="studioDeleteBtn" onclick="handleDeleteProductStudio()" class="hidden px-4 py-2 bg-red-950 text-red-300 border border-red-800 rounded-xl">Delete</button>
-          <div class="flex items-center gap-3 ml-auto">
-            <button type="button" onclick="closeProductStudioModal()" class="px-4 py-2 text-slate-400">Cancel</button>
-            <button type="submit" class="px-7 py-2.5 bg-gradient-to-r from-amber-500 via-gold to-amber-600 text-royal-950 font-black rounded-xl uppercase tracking-wider">
-              Save Item & Prices
+        <!-- EXTRA IMAGES UPLOAD -->
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">📸 Additional Angle Photos (Optional, Max 4)</label>
+          <label for="studioExtraImageFiles" class="cursor-pointer">
+            <div class="w-full bg-royal-900 border border-dashed border-gold/25 hover:border-gold/50 rounded-xl p-2.5 text-center text-xs text-slate-400 transition">
+              <i class="fa-solid fa-images text-gold/60 mr-1"></i> Upload Up to 4 More Photos (Multiple Select)
+            </div>
+            <input type="file" id="studioExtraImageFiles" accept="image/*" multiple onchange="previewExtraImages(event)" class="hidden">
+          </label>
+          <div id="studioExtraImagesPreview" class="flex gap-2 flex-wrap mt-2"></div>
+          <!-- Hidden field to store extra images data -->
+          <input type="hidden" id="studioExtraImages" value="">
+        </div>
+
+        <div class="pt-2 border-t border-gold/20 flex items-center justify-between">
+          <button type="button" id="studioDeleteBtn" onclick="handleDeleteProductStudio()" class="hidden px-3 py-1.5 bg-red-950 text-red-300 border border-red-800 rounded-lg">Delete</button>
+          <div class="flex items-center gap-2 ml-auto">
+            <button type="button" onclick="closeProductStudioModal()" class="px-3 py-1.5 text-slate-400">Cancel</button>
+            <button type="submit" class="px-5 py-2 bg-gradient-to-r from-amber-500 to-gold text-royal-950 font-black rounded-lg uppercase">
+              Save Item
             </button>
           </div>
         </div>
@@ -1016,93 +908,44 @@
     </div>
   </div>
 
-  <!-- ADMIN MODAL: CUSTOMIZE LIVE BIHAR BULLION RATES -->
-  <div id="rateEditModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
-    <div class="bg-royal-950 border border-gold/40 rounded-2xl max-w-md w-full p-6 relative shadow-2xl text-xs space-y-4">
-      <button onclick="closeRateEditModal()" class="absolute top-4 right-4 text-slate-400 p-2"><i class="fa-solid fa-xmark"></i></button>
+  <!-- ADMIN MODAL: CUSTOMIZE BIHAR RATES -->
+  <div id="rateEditModal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-3">
+    <div class="bg-royal-950 border border-gold/40 rounded-2xl max-w-xs w-full p-4 relative shadow-2xl text-xs space-y-3">
+      <button onclick="closeRateEditModal()" class="absolute top-3 right-3 text-slate-400 p-1"><i class="fa-solid fa-xmark"></i></button>
 
-      <div class="flex items-center gap-2.5">
-        <i class="fa-solid fa-coins text-gold text-2xl"></i>
-        <div>
-          <h4 class="text-sm font-bold text-white">Customize Bihar Bullion Rates</h4>
-          <p class="text-[10px] text-slate-400">Current 24K Rate: ₹1,42,600 / 10g</p>
-        </div>
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-coins text-gold text-xl"></i>
+        <h4 class="text-sm font-bold text-white">Bihar Bullion Rates</h4>
       </div>
 
-      <form onsubmit="handleSaveLiveRates(event)" class="space-y-3">
+      <form onsubmit="handleSaveLiveRates(event)" class="space-y-2.5">
         <div>
-          <label class="block text-amber-300 font-bold mb-1">24K Pure Gold (10g) in ₹ *</label>
-          <input type="number" id="editRate24k" value="142600" required class="w-full bg-royal-900 border border-gold/40 rounded p-2 text-white font-bold">
+          <label class="block text-amber-300 font-bold mb-0.5">24K Pure Gold (10g) in ₹ *</label>
+          <input type="number" id="editRate24k" value="142600" required class="w-full bg-royal-900 border border-gold/40 rounded p-1.5 text-white font-bold">
         </div>
         <div>
-          <label class="block text-slate-300 mb-1">22K Standard Gold (10g) in ₹</label>
-          <input type="number" id="editRate22k" value="130700" required class="w-full bg-royal-900 border border-gold/20 rounded p-2 text-white">
+          <label class="block text-slate-300 mb-0.5">22K Standard Gold (10g) in ₹</label>
+          <input type="number" id="editRate22k" value="130700" required class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
         </div>
         <div>
-          <label class="block text-slate-300 mb-1">18K Diamond Gold (10g) in ₹</label>
-          <input type="number" id="editRate18k" value="106950" required class="w-full bg-royal-900 border border-gold/20 rounded p-2 text-white">
-        </div>
-        <div>
-          <label class="block text-slate-300 mb-1">Pure Silver 999 (1 Kg) in ₹</label>
-          <input type="number" id="editRateSilver" value="98500" required class="w-full bg-royal-900 border border-gold/20 rounded p-2 text-white">
+          <label class="block text-slate-300 mb-0.5">Pure Silver (1 Kg) in ₹</label>
+          <input type="number" id="editRateSilver" value="98500" required class="w-full bg-royal-900 border border-gold/20 rounded p-1.5 text-white">
         </div>
 
         <div class="pt-2 flex justify-end gap-2">
-          <button type="button" onclick="closeRateEditModal()" class="px-4 py-2 text-slate-400">Cancel</button>
-          <button type="submit" class="px-6 py-2 bg-gold text-royal-950 font-bold rounded-lg">Update Live Rates</button>
+          <button type="button" onclick="closeRateEditModal()" class="px-3 py-1.5 text-slate-400">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 bg-gold text-royal-950 font-bold rounded">Update Rates</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- FLOATING CHAT BUTTON -->
-  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-    <button onclick="toggleLiveChat()" class="flex items-center gap-2.5 bg-royal-950/95 border border-gold/50 text-gold-200 px-4 py-3 rounded-full shadow-2xl hover:bg-royal-900 transition">
-      <span class="w-3 h-3 rounded-full bg-emerald-400 pulse-green"></span>
-      <span class="text-xs font-bold">Customer Live Baat Karein</span>
-      <i class="fa-solid fa-comments text-gold text-base"></i>
-    </button>
-  </div>
-
   <!-- FOOTER -->
-  <footer class="bg-royal-950 border-t border-gold/25 pt-12 pb-8 mt-16 text-slate-400 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gold/15">
-        <div class="space-y-3">
-          <h4 class="text-base font-bold text-white font-serif-luxury">AMBE JEWELLERY SHOP</h4>
-          <p class="text-[11px] text-slate-400">
-            Showroom specializing in pure 24K/22K gold & 999 silver ornaments since 1998 in Bihar.
-          </p>
-          <div class="text-xs">Proprietor: <strong class="text-white">Kanhaiya Sharma</strong> | Call: <a href="tel:6202805193" class="text-gold font-bold">6202805193</a></div>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold text-white mb-3 uppercase">Gold & Silver Menu</h4>
-          <ul class="space-y-2">
-            <li><button onclick="filterByMetal('Gold')" class="hover:text-gold">Pure 24K & 22K Gold</button></li>
-            <li><button onclick="filterByMetal('Silver')" class="hover:text-gold">Pure Silver (999 Chandi)</button></li>
-            <li><button onclick="filterCategory('Necklaces')" class="hover:text-gold">Gold Necklaces & Haar</button></li>
-            <li><button onclick="filterCategory('Coins')" class="hover:text-gold">24K Bullion Coins</button></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold text-white mb-3 uppercase">Delivery Commitment</h4>
-          <p class="text-slate-300 leading-relaxed">
-            Order confirmed with guaranteed date and time slot delivery across Bihar and India under armed escort.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold text-white mb-3 uppercase">Showroom Address</h4>
-          <p class="text-slate-300">Ambe Jewellery Showroom, Main Market Road, Bihar - 800001</p>
-          <p class="mt-1">Proprietor Contact: 6202805193</p>
-        </div>
-      </div>
-
-      <div class="pt-6 text-center text-slate-500 text-[11px]">
-        © 2026 Ambe Jewellery Shop. All Rights Reserved. Owner: <strong>Kanhaiya Sharma (6202805193)</strong>.
-      </div>
+  <footer class="bg-royal-950 border-t border-gold/25 pt-8 pb-10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+      <div class="text-gold font-bold text-sm">AMBE JEWELLERY SHOP</div>
+      <p class="text-[11px] text-slate-400">Proprietor: Kanhaiya Sharma • Contact: 6202805193 • Main Market, Bihar</p>
+      <div class="text-[10px] text-slate-500">© 2026 Ambe Jewellery Shop. All Rights Reserved.</div>
     </div>
   </footer>
 

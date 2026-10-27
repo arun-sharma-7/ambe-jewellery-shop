@@ -4,9 +4,7 @@
  * Bihar 24K Gold Rate: ₹1,42,600 | Gold & Silver Delivery Booking
  */
 
-const API_BASE = window.location.origin.includes(':5000') 
-  ? window.location.origin + '/api' 
-  : 'http://localhost:5000/api';
+const API_BASE = window.location.origin + '/api';
 
 // APP STATE
 const state = {
@@ -180,6 +178,84 @@ function calculateLiveGoldEstimate() {
   const grandTotal = Math.round(subtotal + gst);
 
   resultEl.innerText = `₹${grandTotal.toLocaleString('en-IN')}`;
+}
+
+// -------------------------------------------------------------
+// IMAGE FILE UPLOAD HELPERS (Base64 via FileReader)
+// -------------------------------------------------------------
+function previewMainImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const base64 = e.target.result;
+    // Store base64 in hidden input
+    document.getElementById('studioMainImage').value = base64;
+    // Show preview
+    const preview = document.getElementById('studioMainImagePreview');
+    preview.src = base64;
+    preview.classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewExtraImages(event) {
+  const files = Array.from(event.target.files).slice(0, 4);
+  const container = document.getElementById('studioExtraImagesPreview');
+  container.innerHTML = '';
+
+  const base64List = [];
+
+  files.forEach((file, idx) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      base64List[idx] = e.target.result;
+      // Render preview thumbnail
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'w-16 h-16 rounded-xl object-cover border border-gold/40 shadow';
+      img.title = file.name;
+      container.appendChild(img);
+      // Update hidden field after all done (use join on current state)
+      document.getElementById('studioExtraImages').value = base64List.filter(Boolean).join('|||');
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function clearStudioImageInputs() {
+  // Clear file inputs (can't pre-fill for security)
+  const mainFileInput = document.getElementById('studioMainImageFile');
+  if (mainFileInput) mainFileInput.value = '';
+  const extraFileInput = document.getElementById('studioExtraImageFiles');
+  if (extraFileInput) extraFileInput.value = '';
+  // Clear previews
+  const mainPreview = document.getElementById('studioMainImagePreview');
+  if (mainPreview) { mainPreview.src = ''; mainPreview.classList.add('hidden'); }
+  const extraContainer = document.getElementById('studioExtraImagesPreview');
+  if (extraContainer) extraContainer.innerHTML = '';
+  // Clear hidden fields
+  document.getElementById('studioMainImage').value = '';
+  document.getElementById('studioExtraImages').value = '';
+}
+
+function showExistingImagePreview(imageUrl, extraImages) {
+  // Show existing image as preview when editing
+  const mainPreview = document.getElementById('studioMainImagePreview');
+  if (mainPreview && imageUrl) {
+    mainPreview.src = imageUrl;
+    mainPreview.classList.remove('hidden');
+    document.getElementById('studioMainImage').value = imageUrl;
+  }
+
+  const container = document.getElementById('studioExtraImagesPreview');
+  if (container && extraImages && extraImages.length > 0) {
+    container.innerHTML = extraImages.map(url =>
+      `<img src="${url}" class="w-16 h-16 rounded-xl object-cover border border-gold/40 shadow opacity-60" title="Existing photo">`
+    ).join('');
+    document.getElementById('studioExtraImages').value = extraImages.join('|||');
+  }
 }
 
 // ADMIN CUSTOMIZE RATES
@@ -557,9 +633,10 @@ function openAddProductModal(defaultCat = 'Necklaces') {
   document.getElementById('studioPrice').value = '142600';
   document.getElementById('studioMaking').value = '₹5,500';
   document.getElementById('studioDeliveryDays').value = '2';
-  document.getElementById('studioMainImage').value = 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80';
-  document.getElementById('studioExtraImages').value = '';
   document.getElementById('studioDeleteBtn').classList.add('hidden');
+
+  // Clear image inputs for fresh add
+  clearStudioImageInputs();
 
   adjustStudioCaratOptions();
   document.getElementById('productStudioModal').classList.remove('hidden');
@@ -601,9 +678,11 @@ function openEditProductModal(prodId) {
   document.getElementById('studioPrice').value = prod.price;
   document.getElementById('studioMaking').value = prod.makingCharge || '₹3,500';
   document.getElementById('studioDeliveryDays').value = prod.deliveryDays || 2;
-  document.getElementById('studioMainImage').value = prod.image;
-  document.getElementById('studioExtraImages').value = (prod.images || []).join(', ');
   document.getElementById('studioDeleteBtn').classList.remove('hidden');
+
+  // Clear file inputs first, then show existing image preview
+  clearStudioImageInputs();
+  showExistingImagePreview(prod.image, prod.images || []);
 
   document.getElementById('productStudioModal').classList.remove('hidden');
 }
@@ -623,13 +702,22 @@ async function handleSaveProductStudio(e) {
   const price = parseFloat(document.getElementById('studioPrice').value);
   const makingCharge = document.getElementById('studioMaking').value.trim() || '₹3,500';
   const deliveryDays = parseInt(document.getElementById('studioDeliveryDays').value) || 2;
-  const image = document.getElementById('studioMainImage').value.trim();
-  
-  const extraImagesStr = document.getElementById('studioExtraImages').value.trim();
-  const images = extraImagesStr 
-    ? extraImagesStr.split(',').map(s => s.trim()).filter(Boolean)
-    : [image];
 
+  // Get image from hidden field (could be base64 uploaded or existing URL)
+  const image = document.getElementById('studioMainImage').value.trim() 
+    || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80';
+
+  // Extra images: stored as ||| separated base64 or URLs
+  const extraRaw = document.getElementById('studioExtraImages').value.trim();
+  let images = [];
+  if (extraRaw) {
+    // Support both ||| separator (new file upload) and comma separated (old URLs)
+    if (extraRaw.includes('|||')) {
+      images = extraRaw.split('|||').map(s => s.trim()).filter(Boolean);
+    } else {
+      images = extraRaw.split(',').map(s => s.trim()).filter(Boolean);
+    }
+  }
   if (!images.includes(image)) images.unshift(image);
 
   const payload = {
